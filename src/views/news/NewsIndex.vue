@@ -145,15 +145,28 @@
     >
       <h1 class="text-lg font-bold text-center">Latest Updated News</h1>
       <div
-        class="grid px-4 py-2 mt-4 border border-gray-400  grid-cols-1sm:grid-cols-3 gap-4sm:gap-8"
-        v-for="(news, index) in newsStore.getNewsList"
+        class=""
+        v-for="(articles, index) in newsStore.articlesList"
         :key="index"
       >
-        <h3 class="mt-2">{{ news.title }}</h3>
+        <div
+          class="grid grid-cols-1 gap-4 px-4 py-2 mt-4 bg-white border border-gray-600 rounded-md shadow-sm  sm:grid-cols-3 sm:gap-8"
+        >
+          <div class="flex items-center space-x-4">
+            <label class="text-base font-semibold uppercase">Title</label>
+            <h3 class="mt-2 text-sm font-medium text-gray-600">
+              {{ articles.title }}
+            </h3>
+          </div>
 
-        <p class="mt-4">{{ news.description }}</p>
+          <div class="flex items-center space-x-4">
+            <label class="text-base font-semibold uppercase">Description</label>
+            <p class="mt-4 text-sm font-normal text-gray-400">
+              {{ articles.description }}
+            </p>
+          </div>
+        </div>
       </div>
-      {{ newsStore.newsList }}
     </div>
   </div>
 </template>
@@ -170,23 +183,8 @@ onMounted(() => {
 })
 
 // methods
+
 function fetchInitialData() {
-  newsStore.fetchNews()
+  newsStore.fetchNews({})
 }
 </script>
-
-<style lang="css">
-.carousel {
-  background: #eee;
-}
-
-.carousel img {
-  display: block;
-}
-
-@media screen and (min-width: 768px) {
-  .carousel img {
-    height: 400px;
-  }
-}
-</style>

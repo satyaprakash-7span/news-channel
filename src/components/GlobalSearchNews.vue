@@ -16,7 +16,7 @@
               name="search"
               class="block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 rounded-md  focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               v-model="name"
-              placeholder="Search..."
+              placeholder="Search Articles..."
               @input="onSearch"
               type="search"
             />

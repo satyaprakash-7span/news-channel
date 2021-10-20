@@ -88,7 +88,7 @@
               </transition>
             </Popover>
             <router-link
-              to="/articles/"
+              to="/articles/articles-index"
               class="text-base font-medium text-gray-500 hover:text-gray-900"
             >
               Articles

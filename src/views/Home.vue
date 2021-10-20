@@ -20,15 +20,18 @@
               <h1
                 class="text-4xl font-extrabold tracking-tight text-center  sm:text-5xl lg:text-6xl"
               >
-                <span class="block text-white">Take control of your</span>
-                <span class="block text-indigo-200">customer support</span>
+                <span class="block text-white"
+                  >Get up to date with Top Headlines</span
+                >
+                <span class="block text-indigo-200">Our News report</span>
               </h1>
               <p
                 class="max-w-lg mx-auto mt-6 text-xl text-center text-indigo-200  sm:max-w-3xl"
               >
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-                lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-                fugiat aliqua.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni
+                error illum fugit accusantium optio delectus, quos atque
+                assumenda ab praesentium iure quibusdam nesciunt explicabo
+                veniam ipsa a blanditiis cumque totam!
               </p>
               <div
                 class="max-w-sm mx-auto mt-10  sm:max-w-none sm:flex sm:justify-center"
@@ -215,32 +218,32 @@
         </div>
       </div>
 
-      <!-- news slider -->
+      <!-- Top headlines -->
       <div
         class="grid max-w-md gap-8 px-4 mx-auto mt-12  sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl"
       >
         <div
-          v-for="post in blogPosts"
-          :key="post.id"
+          v-for="(news, index) in newsStore.newsList"
+          :key="index"
           class="flex flex-col overflow-hidden rounded-lg shadow-lg"
         >
           <div class="flex-shrink-0">
-            <img class="object-cover w-full h-48" :src="post.imageUrl" alt="" />
+            <img class="object-cover w-full h-48" :src="news.imageUrl" alt="" />
           </div>
           <div class="flex flex-col justify-between flex-1 p-6 bg-white">
             <div class="flex-1">
               <p class="text-sm font-medium text-cyan-600">
-                <a :href="post.category.href" class="hover:underline">
-                  {{ post.category.name }}
+                <a :href="news.href" class="hover:underline">
+                  {{ news.title }}
                 </a>
               </p>
               <a :href="post.href" class="block mt-2">
                 <p class="text-xl font-semibold text-gray-900">
-                  {{ post.title }}
+                  {{ news.description }}
                 </p>
-                <p class="mt-3 text-base text-gray-500">
+                <!-- <p class="mt-3 text-base text-gray-500">
                   {{ post.preview }}
-                </p>
+                </p> -->
               </a>
             </div>
           </div>
@@ -266,6 +269,7 @@ import {
   TrashIcon,
   UsersIcon,
 } from '@heroicons/vue/outline'
+import { useNewsStore } from '../stores/news'
 
 const features = [
   {
@@ -360,9 +364,17 @@ const blogPosts = [
 export default {
   components: { TheSiteFooter },
   setup() {
+    const newsStore = useNewsStore()
+
+    fetchInitialData()
+
+    function fetchInitialData() {
+      newsStore.fetchNews()
+    }
     return {
       features,
       blogPosts,
+      newsStore,
     }
   },
 }
