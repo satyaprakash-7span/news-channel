@@ -146,7 +146,7 @@
       <h1 class="text-lg font-bold text-center">Latest Updated News</h1>
       <div
         class=""
-        v-for="(articles, index) in newsStore.articlesList"
+        v-for="(articles, index) in newsStore.newsList"
         :key="index"
       >
         <div
@@ -183,7 +183,6 @@ onMounted(() => {
 })
 
 // methods
-
 function fetchInitialData() {
   newsStore.fetchNews({})
 }
