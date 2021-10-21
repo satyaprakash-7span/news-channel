@@ -36,6 +36,7 @@
         v-if="isShow"
         class="
           scrollbar-thin
+          border border-gray-200
           scrollbar-thumb-rounded-full
           scrollbar-thumb-gray-300
           scrollbar-track-gray-100
@@ -52,10 +53,6 @@
         "
       >
         <div v-if="newsStore.newsList.length > 0" class="mt-2">
-          <label class="text-sm text-gray-400 mb-2 block px-2 mb-0.5 uppercase">
-            No news found!
-            <ExclamationIcon />
-          </label>
           <div
             v-for="(news, index) in newsStore.newsList"
             :key="index"
@@ -72,6 +69,12 @@
                 </span>
               </div>
             </router-link>
+          </div>
+          <div>
+            <label class="block px-2 mb-2 text-sm text-gray-400 uppercase">
+              No news found!
+            </label>
+            <ExclamationIcon class="w-6 h-6" />
           </div>
         </div>
       </div>

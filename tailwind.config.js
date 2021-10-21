@@ -5,7 +5,14 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      padding: ['hover'],
+      maxHeight: ['focus'],
+      divideColor: ['group-hover'],
+      backgroundColor: ['group-focus'],
+      scale: ['focus-within'],
+      animation: ['motion-safe'],
+    },
   },
   plugins: [],
 }

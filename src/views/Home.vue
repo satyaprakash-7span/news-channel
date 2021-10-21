@@ -13,12 +13,12 @@
                 alt="People working on laptops"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-r from-purple-800 to-indigo-700 mix-blend-multiply"
+                class="absolute inset-0  bg-gradient-to-r from-purple-800 to-indigo-700 mix-blend-multiply"
               />
             </div>
             <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
               <h1
-                class="text-4xl font-extrabold tracking-tight text-center sm:text-5xl lg:text-6xl"
+                class="text-4xl font-extrabold tracking-tight text-center  sm:text-5xl lg:text-6xl"
               >
                 <span class="block text-white"
                   >Get up to date with Top Headlines</span
@@ -26,7 +26,7 @@
                 <span class="block text-indigo-200">Our News report</span>
               </h1>
               <p
-                class="max-w-lg mx-auto mt-6 text-xl text-center text-indigo-200 sm:max-w-3xl"
+                class="max-w-lg mx-auto mt-6 text-xl text-center text-indigo-200  sm:max-w-3xl"
               >
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni
                 error illum fugit accusantium optio delectus, quos atque
@@ -34,14 +34,14 @@
                 veniam ipsa a blanditiis cumque totam!
               </p>
               <div
-                class="max-w-sm mx-auto mt-10 sm:max-w-none sm:flex sm:justify-center"
+                class="max-w-sm mx-auto mt-10  sm:max-w-none sm:flex sm:justify-center"
               >
                 <div
-                  class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-1 sm:gap-5"
+                  class="space-y-4  sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-1 sm:gap-5"
                 >
                   <router-link
                     to="/news/news-index"
-                    class="flex items-center justify-center px-4 py-3 text-base font-medium text-indigo-700 transition-all ease-in-out transform bg-white border border-transparent rounded-md shadow-sm hover:shadow-lg hover:scale-90 duration-400 hover:bg-indigo-100 sm:px-8"
+                    class="flex items-center justify-center px-4 py-3 text-base font-medium text-indigo-700 transition-all ease-in-out transform bg-white border border-transparent rounded-md shadow-sm  hover:shadow-lg hover:scale-90 duration-400 hover:bg-indigo-100 sm:px-8"
                   >
                     Get started
                   </router-link>
@@ -91,7 +91,7 @@
               />
             </div>
             <div
-              class="flex justify-center col-span-1 md:col-span-2 md:col-start-2 lg:col-span-1"
+              class="flex justify-center col-span-1  md:col-span-2 md:col-start-2 lg:col-span-1"
             >
               <img
                 class="h-12"
@@ -100,7 +100,7 @@
               />
             </div>
             <div
-              class="flex justify-center col-span-2 md:col-span-2 md:col-start-4 lg:col-span-1"
+              class="flex justify-center col-span-2  md:col-span-2 md:col-start-4 lg:col-span-1"
             >
               <img
                 class="h-12"
@@ -152,10 +152,10 @@
           </svg>
         </div>
         <div
-          class="max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8"
+          class="max-w-md px-4 mx-auto  sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8"
         >
           <div
-            class="relative px-6 py-10 overflow-hidden bg-indigo-800 shadow-xl opacity-95 bg-overlay bg-gradient rounded-2xl sm:px-12 sm:py-20"
+            class="relative px-6 py-10 overflow-hidden bg-gray-900 shadow-xl  opacity-95 bg-overlay bg-gradient rounded-2xl sm:px-12 sm:py-20"
           >
             <div
               aria-hidden="true"
@@ -183,12 +183,12 @@
             <div class="relative">
               <div class="sm:text-center">
                 <h2
-                  class="font-serif text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
+                  class="font-serif text-3xl font-extrabold tracking-tight text-white  sm:text-4xl"
                 >
                   Get notified with the latest News.
                 </h2>
                 <p
-                  class="max-w-2xl mx-auto mt-6 text-lg text-white text-rose-100"
+                  class="max-w-2xl mx-auto mt-6 text-lg text-white  text-rose-100"
                 >
                   Sagittis scelerisque nulla cursus in enim consectetur quam.
                   Dictum urna sed consectetur neque tristique pellentesque.
@@ -200,14 +200,14 @@
                   <input
                     id="cta-email"
                     type="email"
-                    class="block w-full px-5 py-3 text-base text-gray-900 placeholder-gray-500 transition duration-75 border border-transparent rounded-md shadow-sm cursor-pointer hover:shadow-lg focus:shadow-lg focus:ring- focus:ring-indigo-500 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500"
+                    class="block w-full px-5 py-3 text-base text-gray-900 placeholder-gray-500 transition duration-75 border border-transparent rounded-md shadow-sm cursor-pointer  hover:shadow-lg focus:shadow-lg focus:ring- focus:ring-indigo-500 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500"
                     placeholder="Enter your email"
                   />
                 </div>
                 <div class="mt-4 sm:mt-0 sm:ml-3">
                   <button
                     type="submit"
-                    class="block w-full px-5 py-3 text-base font-medium text-white transition-all duration-300 ease-in-out transform bg-transparent border border-transparent border-white rounded-md shadow hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10 hover:bg-opacity-50"
+                    class="block w-full px-5 py-3 text-base font-medium text-white transition-all duration-300 ease-in-out transform bg-transparent border border-transparent border-white rounded-md shadow  hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10 hover:bg-opacity-50"
                   >
                     Notify me
                   </button>
@@ -219,32 +219,34 @@
       </div>
 
       <!-- Top headlines -->
-      <div
-        class="grid max-w-md gap-8 px-4 mx-auto mt-12 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl"
-      >
-        <div
-          v-for="(news, index) in newsStore.newsList"
-          :key="index"
-          class="flex flex-col overflow-hidden rounded-lg shadow-lg"
-        >
-          <div class="flex-shrink-0">
-            <img class="object-cover w-full h-48" :src="news.imageUrl" alt="" />
-          </div>
-          <div class="flex flex-col justify-between flex-1 p-6 bg-white">
-            <div class="flex-1">
-              <p class="text-sm font-medium text-cyan-600">
-                <a :href="news.href" class="hover:underline">
-                  {{ news.title }}
-                </a>
+      <div class="w-full px-6 mx-auto mt-12 bg-gray-100 rounded-md max-w-7xl">
+        <div class="grid w-full gap-8 py-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            v-for="(news, index) in newsStore.newsList"
+            :key="index"
+            class="transition-all transform bg-white rounded-md shadow-sm cursor-pointer  groupduration-300 rounded-t-md hover:shadow-xl motion-reduce:transform-none"
+          >
+            <div>
+              <img src="@/assets/hd-news.jpeg" v-if="!news.urlToImage" />
+              <img
+                v-else
+                class="object-cover w-full h-48 duration-300 transform  grup:hover-scale-90 transition-al"
+                :src="news.urlToImage"
+                alt=""
+              />
+            </div>
+            <div class="px-4 py-4 bg-white rounded-b-md">
+              <h3
+                class="text-lg font-medium text-gray-700 cursor-pointer  group:hover-text-blue-500"
+              >
+                {{ news.title }}
+              </h3>
+              <p class="mt-2 mb-4 text-base font-normal text-gray-500 truncate">
+                {{ news.description }}
               </p>
-              <a :href="post.href" class="block mt-2">
-                <p class="text-xl font-semibold text-gray-900">
-                  {{ news.description }}
-                </p>
-                <!-- <p class="mt-3 text-base text-gray-500">
+              <!-- <p class="mt-3 text-base text-gray-500">
                   {{ post.preview }}
                 </p> -->
-              </a>
             </div>
           </div>
         </div>
@@ -258,7 +260,6 @@
 <script>
 import TheSiteFooter from '../components/TheSiteFooter.vue'
 
-import {} from '@headlessui/vue'
 import {
   ChatAltIcon,
   DocumentReportIcon,

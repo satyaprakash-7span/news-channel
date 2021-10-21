@@ -27,11 +27,12 @@ export const useNewsStore = defineStore({
   getters: { getNewsList: (state) => state.news },
 
   actions: {
+    // fetch top-headlines news
     fetchNews() {
       return new Promise((resolve, reject) => {
         axios
           .get(
-            ` https://newsapi.org/v2/top-headlines?country=us&apiKey=1393c54efc254684aa121dad468890cd
+            ` https://newsapi.org/v2/top-headlines?country=us&apiKey=702fed1efe02446a96018e9d85f39655
 `
           )
           .then((response) => {
@@ -43,17 +44,17 @@ export const useNewsStore = defineStore({
           })
       })
     },
-
+    //  fetch all articles news
     fetchArticles() {
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=1393c54efc254684aa121dad468890cd
+            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=702fed1efe02446a96018e9d85f39655
 
 `
           )
           .then((response) => {
-            this.newsList = response.data.articles
+            this.articles = response.data.articles
             resolve(response)
           })
           .catch((err) => {
@@ -62,6 +63,7 @@ export const useNewsStore = defineStore({
       })
     },
 
+    // add news action
     addNews(data) {
       return new Promise((resolve, reject) => {
         axios
@@ -75,7 +77,7 @@ export const useNewsStore = defineStore({
           })
       })
     },
-
+    // add articles action
     addArticle(data) {
       return new Promise((resolve, reject) => {
         axios
@@ -91,11 +93,12 @@ export const useNewsStore = defineStore({
       })
     },
 
+    // search articles & news action
     searchArticles(params) {
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=05f789b6c5bb4df1bf2cacafc7d7c4b6
+            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=702fed1efe02446a96018e9d85f39655
 `,
             { params }
           )
