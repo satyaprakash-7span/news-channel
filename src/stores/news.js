@@ -24,7 +24,7 @@ export const useNewsStore = defineStore({
     body: '',
   },
 
-  getters: { getNewsList: (state) => state.news },
+  getters: { getNewsList: (state) => state.articles },
 
   actions: {
     // fetch top-headlines news
@@ -54,7 +54,7 @@ export const useNewsStore = defineStore({
 `
           )
           .then((response) => {
-            this.articles = response.data.articles
+            this.articlesList = response.data.articles
             resolve(response)
           })
           .catch((err) => {

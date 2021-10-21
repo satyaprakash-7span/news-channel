@@ -34,29 +34,64 @@
         </dl>
       </div>
     </div>
+
+    <div class="max-w-5xl mx-auto border border-gray-200"></div>
+
     <div
-      class="px-4 py-6 mx-auto mt-32 mb-10 bg-gray-200 rounded-md shadow-md  max-w-7xl sm:px-6"
+      class="px-4 py-6 mx-auto mt-12 mb-10 bg-gray-200 rounded-md shadow-md  sm:mt-20 max-w-7xl sm:px-6"
     >
-      <h1 class="text-lg font-bold text-center sm:text-2xl">
+      <h1 class="text-lg font-bold text-center sm:text-5xl">
         Latest Updated Articles
       </h1>
-    </div>
-    <div class="" v-for="(articles, index) in newsStore.newsList" :key="index">
-      <div
-        class="grid grid-cols-1 gap-4 px-4 py-2 mt-4 bg-white border border-gray-600 rounded-md shadow-sm  sm:grid-cols-3 sm:gap-8"
-      >
-        <div class="flex items-center space-x-4">
-          <label class="text-base font-semibold uppercase">Title</label>
-          <h3 class="mt-2 text-sm font-medium text-gray-600">
-            {{ articles.title }}
-          </h3>
-        </div>
 
-        <div class="flex items-center space-x-4">
-          <label class="text-base font-semibold uppercase">Description</label>
-          <p class="mt-4 text-sm font-normal text-gray-400">
-            {{ articles.description }}
-          </p>
+      <div class="mx-auto mt-6 mb-6 border border-gray-300 max-w-7xl"></div>
+
+      <div>
+        <div
+          class="grid w-full grid-cols-1 gap-8 py-6  sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <router-link
+            :to="`articles/${articles.id}/view`"
+            class="relative transition-all duration-700 transform bg-white rounded-md shadow-sm cursor-pointer  hover:bg-gray-100 hover:rounded-md group rounded-t-md hover:shadow-2xl motion-reduce:transform-none hover:border hover:border-gray-400"
+            v-for="(articles, index) in newsStore.articlesList"
+            :key="index"
+          >
+            <div class="px-4 py-3">
+              <div class="mt-2">
+                <label class="text-base font-semibold text-gray-600 uppercase">
+                  Title
+                </label>
+                <div
+                  class="max-w-md mx-auto mt-2 mb-2 border border-gray-200"
+                ></div>
+                <h3
+                  class="mt-2 text-lg font-medium text-gray-900  group-hover:text-indigo-500 sm:text-xl"
+                >
+                  {{ articles.title }}
+                </h3>
+              </div>
+
+              <div class="pb-2 mt-4">
+                <label class="text-base font-semibold text-gray-600 uppercase">
+                  Description
+                </label>
+                <div
+                  class="max-w-md mx-auto mt-2 mb-2 border border-gray-200"
+                ></div>
+                <p
+                  v-if="articles.description"
+                  class="mt-2 text-sm font-normal text-gray-500"
+                >
+                  {{ articles.description }}
+                </p>
+                <p class="mt-2 text-sm font-normal text-gray-500" v-else>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+                  alias, molestiae fugit quasi numquam explicabo aliquam? Esse
+                  excepturi veritatis provident.
+                </p>
+              </div>
+            </div>
+          </router-link>
         </div>
       </div>
     </div>

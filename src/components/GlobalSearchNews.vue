@@ -42,13 +42,13 @@
           scrollbar-track-gray-100
           overflow-y-auto
           bg-white
+          h-96
           rounded-md
           mt-2
           shadow-lg
           p-3
           absolute
           w-[300px]
-          h-[200px]
           right-0
         "
       >
@@ -63,18 +63,26 @@
               class="flex items-center"
             >
               <div class="flex flex-col">
-                <span class="text-sm">{{ news.name }}</span>
-                <span class="text-xs text-gray-400"
-                  >{{ news.description }}
-                </span>
+                <h3 class="text-xl font-semibold text-gray-600">
+                  {{ news.title }}
+                </h3>
+                <p class="mt-2 text-sm font-normal text-gray-400">
+                  {{ news.description }}
+                </p>
               </div>
             </router-link>
           </div>
-          <div>
+
+          <div class="mx-auto mt-4 mb-4 border border-gray-200 max-md"></div>
+
+          <div
+            v-if="newsStore.newsList.length < 1"
+            class="flex flex-col items-center justify-center mt-4 text-base text-gray-400 "
+          >
+            <ExclamationIcon class="w-6 h-6 text-gray-500" />
             <label class="block px-2 mb-2 text-sm text-gray-400 uppercase">
               No news found!
             </label>
-            <ExclamationIcon class="w-6 h-6" />
           </div>
         </div>
       </div>

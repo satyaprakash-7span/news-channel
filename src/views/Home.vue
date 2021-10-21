@@ -207,7 +207,7 @@
                 <div class="mt-4 sm:mt-0 sm:ml-3">
                   <button
                     type="submit"
-                    class="block w-full px-5 py-3 text-base font-medium text-white transition-all duration-300 ease-in-out transform bg-transparent border border-transparent border-white rounded-md shadow  hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10 hover:bg-opacity-50"
+                    class="block w-full px-5 py-3 text-base font-medium text-white transition-all duration-700 ease-in-out transform bg-transparent border border-transparent border-white rounded-md shadow  hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10 hover:bg-opacity-50"
                   >
                     Notify me
                   </button>
@@ -218,37 +218,73 @@
         </div>
       </div>
 
-      <!-- Top headlines -->
-      <div class="w-full px-6 mx-auto mt-12 bg-gray-100 rounded-md max-w-7xl">
-        <div class="grid w-full gap-8 py-6 sm:grid-cols-2 lg:grid-cols-3">
-          <div
+      <!-- Top headlines News cards-->
+      <div class="mt-12 sm:mt-24">
+        <h1
+          class="font-sans text-xl font-semibold text-center text-gray-600  sm:text-2xl lg:text-5xl sm:text-bold"
+        >
+          Latest worldwide Top Headlines News.
+        </h1>
+
+        <p
+          class="max-w-2xl mx-auto mt-4 text-sm font-normal text-center text-gray-500  sm:text-base"
+        >
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque quis
+          corporis fugit nemo reiciendis fuga accusamus voluptates nisi, tenetur
+          labore?
+        </p>
+      </div>
+
+      <div
+        class="w-full px-6 mt-12 bg-gray-100  sm:mx-auto sm:rounded-md sm:max-w-7xl"
+      >
+        <div
+          class="grid w-full grid-cols-1 gap-8 py-6  sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <router-link
+            :to="`/news-view/${news.source.id}`"
             v-for="(news, index) in newsStore.newsList"
             :key="index"
-            class="transition-all transform bg-white rounded-md shadow-sm cursor-pointer  groupduration-300 rounded-t-md hover:shadow-xl motion-reduce:transform-none"
+            class="relative transition-all duration-700 transform bg-white shadow-sm cursor-pointer  hover:rounded-b-md group rounded-t-md hover:shadow-xl motion-reduce:transform-none"
           >
-            <div>
-              <img src="@/assets/hd-news.jpeg" v-if="!news.urlToImage" />
+            <div class="overflow-hidden group-hover:rounded-t-md">
+              <img
+                src="@/assets/hd-news.jpeg"
+                v-if="!news.urlToImage"
+                class="transition duration-1000 transform cursor-pointer  hover:scale-150"
+              />
               <img
                 v-else
-                class="object-cover w-full h-48 duration-300 transform  grup:hover-scale-90 transition-al"
+                class="object-cover w-full h-48 transition duration-1000 transform cursor-pointer  hover:scale-150"
                 :src="news.urlToImage"
                 alt=""
               />
             </div>
-            <div class="px-4 py-4 bg-white rounded-b-md">
-              <h3
-                class="text-lg font-medium text-gray-700 cursor-pointer  group:hover-text-blue-500"
-              >
-                {{ news.title }}
-              </h3>
-              <p class="mt-2 mb-4 text-base font-normal text-gray-500 truncate">
-                {{ news.description }}
-              </p>
-              <!-- <p class="mt-3 text-base text-gray-500">
-                  {{ post.preview }}
-                </p> -->
+            <div
+              class="transition-all duration-700 bg-white  group-hover:bg-black group-hover:bg-opacity-30 group-hover:rounded-b-md"
+            >
+              <div class="px-4 py-4">
+                <h3
+                  class="text-lg font-medium text-gray-700 cursor-pointer  group-hover:text-white group-hover:text-indigo-600"
+                >
+                  {{ news.title }}
+                </h3>
+                <p
+                  v-if="news.description"
+                  class="mt-2 text-base font-normal text-gray-500 truncate  group-hover:text-white"
+                >
+                  {{ news.description }}
+                </p>
+                <p
+                  v-else
+                  class="mt-2 text-base font-normal text-gray-500 truncate  group-hover:text-white"
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Repellat, saepe.
+                </p>
+              </div>
             </div>
-          </div>
+          </router-link>
         </div>
       </div>
     </main>

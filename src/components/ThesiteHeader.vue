@@ -97,7 +97,7 @@
               to="/news/news-index"
               class="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              Latest News
+              News
             </router-link>
 
             <Popover v-slot="{ open }">

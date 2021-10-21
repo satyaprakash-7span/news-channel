@@ -3,6 +3,8 @@ import Home from '../views/Home.vue'
 import NewsIndex from '../views/news/NewsIndex.vue'
 import NewsCreate from '../views/news/NewsCreate.vue'
 import ArticlesIndex from '../views/articles/ArticlesIndex.vue'
+import ArticleView from '../views/articles/ArticleView.vue'
+import NewsView from '../views/news/NewsView'
 
 const routes = [
   {
@@ -21,12 +23,24 @@ const routes = [
     name: 'NewsCreate',
     component: NewsCreate,
   },
+  {
+    path: '/news-view/:id',
+    name: 'NewsView',
+    component: NewsView,
+  },
   // articles
   {
     path: '/articles/articles-index',
     name: 'ArticlesIndex',
     component: ArticlesIndex,
   },
+  {
+    path: '/article-view/:id',
+    name: 'ArticleView',
+    component: ArticleView,
+  },
+
+  // about
   {
     path: '/about',
     name: 'About',
