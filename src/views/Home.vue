@@ -112,8 +112,32 @@
         </div>
       </div>
 
+      <!-- Hero  News adv -->
+      <div
+        class="w-full h-auto mt-16 text-center bg-gray-100  sm:mt-24 sm:px-12 lg:flex lg:items-center lg:justify-between"
+      >
+        <div class="py-6">
+          <h1
+            class="text-3xl font-bold text-center  sm:mt-1 sm:text-auto sm:text-5xl"
+          >
+            News Advertise
+          </h1>
+          <p class="mt-4 text-base font-normal text-gray-500 sm:text-lg">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus
+            quas ipsam nobis rerum voluptates, quis neque quasi laudantium
+            dolore consectetur adipisci nulla, molestias eius earum cupiditate
+            illum tenetur eaque aliquid.
+          </p>
+        </div>
+        <img
+          src="@/assets/hero-img.png"
+          class="flex justify-center lg:w-1/2 animated"
+          alt=""
+        />
+      </div>
+
       <!-- CTA Section -->
-      <div class="relative mt-24 sm:mt-32 sm:py-16">
+      <div class="relative mt-24 sm:py-16">
         <div aria-hidden="true" class="hidden sm:block">
           <div
             class="absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl"
@@ -219,85 +243,88 @@
       </div>
 
       <!-- Top headlines News cards-->
-      <div class="mt-12 sm:mt-24">
-        <h1
-          class="font-sans text-xl font-semibold text-center text-gray-600  sm:text-3xl lg:text-5xl sm:text-bold"
-        >
-          Latest worldwide Top Headlines News.
-        </h1>
-
-        <p
-          class="max-w-2xl px-5 mx-auto mt-4 text-sm font-normal text-center text-gray-500  sm:px-0 sm:text-base"
-        >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque quis
-          corporis fugit nemo reiciendis fuga accusamus voluptates nisi, tenetur
-          labore?
-        </p>
-      </div>
-
-      <div
-        class="w-full px-6 mt-12 bg-gray-100  sm:mx-auto sm:rounded-md sm:max-w-7xl"
-      >
-        <div
-          v-if="newsStore.newsList.length > 1"
-          class="grid w-full grid-cols-1 gap-8 py-6  sm:grid-cols-2 lg:grid-cols-3"
-        >
-          <router-link
-            :to="`/news-view/${news.source.id}`"
-            v-for="(news, index) in newsStore.newsList"
-            :key="index"
-            class="relative transition-all duration-700 transform bg-white shadow-sm cursor-pointer  hover:rounded-b-md group rounded-t-md hover:shadow-xl motion-reduce:transform-none"
+      <div>
+        <div class="mt-12 sm:mt-24">
+          <h1
+            class="font-sans text-xl font-semibold text-center text-gray-600  sm:text-3xl lg:text-5xl sm:text-bold"
           >
-            <div class="overflow-hidden group-hover:rounded-t-md">
-              <img
-                src="@/assets/hd-news.jpeg"
-                v-if="!news.urlToImage"
-                class="transition duration-1000 transform cursor-pointer  hover:scale-150"
-              />
-              <img
-                v-else
-                class="object-cover w-full h-48 transition duration-1000 transform cursor-pointer  hover:scale-150"
-                :src="news.urlToImage"
-                alt=""
-              />
-            </div>
-            <div
-              class="transition-all duration-700 bg-white  group-hover:bg-black group-hover:bg-opacity-30 group-hover:rounded-b-md"
+            Latest worldwide Top Headlines News.
+          </h1>
+
+          <p
+            class="max-w-2xl px-5 mx-auto mt-4 text-sm font-normal text-center text-gray-500  sm:px-0 sm:text-base"
+          >
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque quis
+            corporis fugit nemo reiciendis fuga accusamus voluptates nisi,
+            tenetur labore?
+          </p>
+        </div>
+
+        <div
+          class="w-full px-6 mt-12 bg-gray-100  sm:mx-auto sm:rounded-md sm:max-w-7xl"
+        >
+          <div
+            v-if="newsStore.newsList.length > 1"
+            class="grid w-full grid-cols-1 gap-8 py-6  sm:grid-cols-2 lg:grid-cols-3"
+          >
+            <router-link
+              :to="`/news-view/${news.source.id}`"
+              v-for="(news, index) in newsStore.newsList"
+              :key="index"
+              class="relative transition-all duration-700 transform bg-white shadow-sm cursor-pointer  hover:rounded-b-md group rounded-t-md hover:shadow-xl motion-reduce:transform-none"
             >
-              <div class="px-4 py-4">
-                <h3
-                  class="text-lg font-medium text-gray-700 cursor-pointer  group-hover:text-white group-hover:text-indigo-600"
-                >
-                  {{ news.title }}
-                </h3>
-                <p
-                  v-if="news.description"
-                  class="mt-2 text-base font-normal text-gray-500 truncate  group-hover:text-white"
-                >
-                  {{ news.description }}
-                </p>
-                <p
+              <div class="overflow-hidden group-hover:rounded-t-md">
+                <img
+                  src="@/assets/hd-news.jpeg"
+                  v-if="!news.urlToImage"
+                  class="transition duration-1000 transform cursor-pointer  hover:scale-150"
+                />
+                <img
                   v-else
-                  class="mt-2 text-base font-normal text-gray-500 truncate  group-hover:text-white"
-                >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellat, saepe.
-                </p>
+                  class="object-cover w-full h-48 transition duration-1000 transform cursor-pointer  hover:scale-150"
+                  :src="news.urlToImage"
+                  alt=""
+                />
               </div>
-            </div>
-          </router-link>
-        </div>
-        <div
-          v-if="newsStore.newsList.length < 1"
-          class="flex flex-col items-center justify-center py-6 mt-4 text-base text-gray-400 "
-        >
-          <ExclamationIcon class="w-12 h-12 text-gray-500" />
-          <label
-            class="block px-2 mb-2 text-sm text-gray-500 uppercase sm:text-xl"
+              <div
+                class="transition-all duration-700 bg-white  group-hover:bg-black group-hover:bg-opacity-30 group-hover:rounded-b-md"
+              >
+                <div class="px-4 py-4">
+                  <h3
+                    class="text-lg font-medium text-gray-700 cursor-pointer  group-hover:text-white group-hover:text-indigo-600"
+                  >
+                    {{ news.title }}
+                  </h3>
+                  <p
+                    v-if="news.description"
+                    class="mt-2 text-base font-normal text-gray-500 truncate  group-hover:text-white"
+                  >
+                    {{ news.description }}
+                  </p>
+                  <p
+                    v-else
+                    class="mt-2 text-base font-normal text-gray-500 truncate  group-hover:text-white"
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Repellat, saepe.
+                  </p>
+                </div>
+              </div>
+            </router-link>
+          </div>
+          <div
+            v-if="!newsStore.newsList"
+            class="flex flex-col items-center justify-center py-6 mt-4 text-base text-gray-400 "
           >
-            No news found!
-          </label>
+            <ExclamationIcon class="w-12 h-12 text-gray-500" />
+            <label
+              class="block px-2 mb-2 text-sm text-gray-500 uppercase sm:text-xl"
+            >
+              No news found!
+            </label>
+          </div>
         </div>
+        <BasePagination v-model="newsStore.totalResults" />
       </div>
     </main>
 
@@ -307,7 +334,7 @@
 
 <script>
 import TheSiteFooter from '../components/TheSiteFooter.vue'
-
+// import NewsSvg from '../components/icons/NewsSvg.vue'
 import {
   ChatAltIcon,
   DocumentReportIcon,
@@ -320,7 +347,7 @@ import {
   UsersIcon,
 } from '@heroicons/vue/outline'
 import { useNewsStore } from '../stores/news'
-
+import BasePagination from '../components/BasePagination.vue'
 const features = [
   {
     name: 'Unlimited Inboxes',
@@ -412,7 +439,7 @@ const blogPosts = [
 ]
 
 export default {
-  components: { TheSiteFooter, ExclamationIcon },
+  components: { TheSiteFooter, ExclamationIcon, BasePagination },
   setup() {
     const newsStore = useNewsStore()
 
@@ -448,6 +475,12 @@ body {
 .carousel img {
   display: block;
   height: 200px;
+}
+
+.animated {
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
 
 @media screen and (min-width: 768px) {

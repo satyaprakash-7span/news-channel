@@ -2,17 +2,20 @@
   <Popover class="relative w-full">
     <div class="absolute inset-0 z-30 pointer-events-none" aria-hidden="true" />
     <div
-      class=""
+      class="flex items-center"
       :class="[
-        { 'shadow-xl bg-transparent transparent-navbar z-1': isScroll },
-        'fixed top-0 left-0 z-40 w-full scroll-navbar bg-white ',
+        {
+          'shadow-xl bg-transparent lg:px-24 transition-all duration-700 transform ease-in  transparent-navbar z-1':
+            isScroll,
+        },
+        'fixed top-0 left-0 z-40 w-full transition-all duration-700 ease-in-out transform scroll-navbar bg-white ',
       ]"
     >
       <div
         class="flex items-center justify-between w-full px-4 py-5  sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10"
       >
         <!-- website logo -->
-        <div>
+        <div v-if="!isOpen">
           <a
             href="/"
             class="hidden px-4 py-2 font-serif text-xl font-bold text-blue-500 transition-all duration-300 transform border border-blue-500 border-solid shadow-md  border-ring-2 sm:block hover:rounded-500 hover:text-yellow-500 hover:bg-gray-100 hover:scale-90 hover:shadow-lg lg:text-3xl"
@@ -27,8 +30,35 @@
           </a>
         </div>
 
+        <!-- Mobile Search Button Toggle -->
+        <div
+          class="flex items-center px-4 py-3  hover:rounded-md hover:bg-gray-100 sm:hidden"
+        >
+          <button @click="isOpen = !isOpen">
+            <label v-if="!isOpen" class="text-lg font-normal text-gray-400">
+              Search...
+            </label>
+            <XIcon v-if="isOpen" class="w-6 h-6 text-gray-400" />
+          </button>
+        </div>
+
+        <!-- Mobile Search Input -->
+        <transition
+          v-show="isOpen"
+          enter-active-class="transition duration-700 ease-out"
+          enter-from-class="-translate-y-1 opacity-0"
+          enter-to-class="translate-y-0 opacity-100"
+          leave-active-class="transition duration-150 ease-in"
+          leave-from-class="translate-y-0 opacity-100"
+          leave-to-class="-translate-y-1 opacity-0"
+        >
+          <div class="w-full">
+            <GlobalSearchNews class="z-40" />
+          </div>
+        </transition>
+
         <!-- Mobile menu toggle  -->
-        <div class="-my-2 -mr-2 md:hidden">
+        <div class="-my-2 -mr-2 md:hidden" v-if="!isOpen">
           <PopoverButton
             class="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md  hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
           >
@@ -37,13 +67,15 @@
           </PopoverButton>
         </div>
 
-        <div class="hidden md:flex-1 md:flex md:items-center md:justify-center">
+        <div
+          class="hidden  md:flex-1 stroke md:flex md:items-center md:justify-center"
+        >
           <PopoverGroup as="nav" class="flex space-x-10">
             <Popover v-slot="{ open }">
               <PopoverButton
                 :class="[
                   open ? 'text-gray-900' : 'text-gray-500',
-                  'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500',
+                  'group lg:text-xl sm:text-lg  bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500',
                 ]"
               >
                 <span>About</span>
@@ -93,15 +125,16 @@
                 </PopoverPanel>
               </transition>
             </Popover>
+
             <router-link
               to="/articles/articles-index"
-              class="text-base font-medium text-gray-500 hover:text-gray-900"
+              class="text-base font-medium text-gray-500  stroke lg:text-lg sm:text-lg hover:text-gray-900"
             >
               Articles
             </router-link>
             <router-link
               to="/news/news-index"
-              class="text-base font-medium text-gray-500 hover:text-gray-900"
+              class="text-base font-medium text-gray-500  stroke lg:text-xl sm:text-lg hover:text-gray-900"
             >
               News
             </router-link>
@@ -110,7 +143,7 @@
               <PopoverButton
                 :class="[
                   open ? 'text-gray-900' : 'text-gray-500',
-                  'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500',
+                  'group bg-white stroke lg:text-xl sm:text-lg  rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500',
                 ]"
               >
                 <span>More</span>
@@ -253,93 +286,94 @@
             </Popover>
           </PopoverGroup>
         </div>
+      </div>
 
-        <transition
-          enter-active-class="duration-200 ease-out"
-          enter-from-class="scale-95 opacity-0"
-          enter-to-class="scale-100 opacity-100"
-          leave-active-class="duration-100 ease-in"
-          leave-from-class="scale-100 opacity-100"
-          leave-to-class="scale-95 opacity-0"
+      <!-- Mobile menu item -->
+      <transition
+        enter-active-class="duration-200 ease-out"
+        enter-from-class="scale-95 opacity-0"
+        enter-to-class="scale-100 opacity-100"
+        leave-active-class="duration-100 ease-in"
+        leave-from-class="scale-100 opacity-100"
+        leave-to-class="scale-95 opacity-0"
+      >
+        <PopoverPanel
+          focus
+          class="absolute inset-x-0 top-0 p-2 transition origin-top-right transform  md:hidden"
         >
-          <PopoverPanel
-            focus
-            class="absolute inset-x-0 top-0 p-2 transition origin-top-right transform  md:hidden"
+          <div
+            class="bg-white divide-y-2 rounded-lg shadow-lg  ring-1 ring-black ring-opacity-5 divide-gray-50"
           >
-            <div
-              class="bg-white divide-y-2 rounded-lg shadow-lg  ring-1 ring-black ring-opacity-5 divide-gray-50"
-            >
-              <div class="px-5 pt-5 pb-6">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <a
-                      href="/"
-                      class="block text-xl font-bold text-blue-500 border-t-2 border-blue-600  hover:text-blue-600 sm:hidden"
-                    >
-                      WNC
-                    </a>
-                  </div>
-                  <div class="-mr-2">
-                    <PopoverButton
-                      class="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md  hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                    >
-                      <span class="sr-only">Close menu</span>
-                      <XIcon class="w-6 h-6" aria-hidden="true" />
-                    </PopoverButton>
-                  </div>
-                </div>
-                <div class="mt-6">
-                  <nav class="grid gap-y-8">
-                    <a
-                      v-for="item in solutions"
-                      :key="item.name"
-                      :href="item.href"
-                      class="flex items-center p-3 -m-3 rounded-md  hover:bg-gray-50"
-                    >
-                      <component
-                        :is="item.icon"
-                        class="flex-shrink-0 w-6 h-6 text-indigo-600"
-                        aria-hidden="true"
-                      />
-                      <span class="ml-3 text-base font-medium text-gray-900">
-                        {{ item.name }}
-                      </span>
-                    </a>
-                  </nav>
-                </div>
-              </div>
-              <div class="px-5 py-6 space-y-6">
-                <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-                  <router-link
-                    to="/news/news-index"
-                    class="text-base font-medium text-gray-900  hover:text-gray-700"
-                  >
-                    News
-                  </router-link>
-
-                  <router-link
-                    to="/articles/articles-index"
-                    class="text-base font-medium text-gray-900  hover:text-gray-700"
-                  >
-                    Articles
-                  </router-link>
+            <div class="px-5 pt-5 pb-6">
+              <div class="flex items-center justify-between">
+                <div>
                   <a
-                    v-for="item in resources"
-                    :key="item.name"
-                    :href="item.href"
-                    class="text-base font-medium text-gray-900  hover:text-gray-700"
+                    href="/"
+                    class="block text-xl font-bold text-blue-500 border-t-2 border-blue-600  hover:text-blue-600 sm:hidden"
                   >
-                    {{ item.name }}
+                    WNC
                   </a>
                 </div>
+                <div class="-mr-2">
+                  <PopoverButton
+                    class="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md  hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                  >
+                    <span class="sr-only">Close menu</span>
+                    <XIcon class="w-6 h-6" aria-hidden="true" />
+                  </PopoverButton>
+                </div>
+              </div>
+              <div class="mt-6">
+                <nav class="grid gap-y-8">
+                  <a
+                    v-for="item in solutions"
+                    :key="item.name"
+                    :href="item.href"
+                    class="flex items-center p-3 -m-3 rounded-md  hover:bg-gray-50"
+                  >
+                    <component
+                      :is="item.icon"
+                      class="flex-shrink-0 w-6 h-6 text-indigo-600"
+                      aria-hidden="true"
+                    />
+                    <span class="ml-3 text-base font-medium text-gray-900">
+                      {{ item.name }}
+                    </span>
+                  </a>
+                </nav>
               </div>
             </div>
-          </PopoverPanel>
-        </transition>
+            <div class="px-5 py-6 space-y-6">
+              <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+                <router-link
+                  to="/news/news-index"
+                  class="text-base font-medium text-gray-900  hover:text-gray-700"
+                >
+                  News
+                </router-link>
 
-        <!-- Search News -->
-        <GlobalSearchNews />
-      </div>
+                <router-link
+                  to="/articles/articles-index"
+                  class="text-base font-medium text-gray-900  hover:text-gray-700"
+                >
+                  Articles
+                </router-link>
+                <a
+                  v-for="item in resources"
+                  :key="item.name"
+                  :href="item.href"
+                  class="text-base font-medium text-gray-900  hover:text-gray-700"
+                >
+                  {{ item.name }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </PopoverPanel>
+      </transition>
+
+      <!-- Search News -->
+      <GlobalSearchNews class="hidden lg:block" />
     </div>
   </Popover>
 </template>
@@ -358,6 +392,7 @@ import {
   DesktopComputerIcon,
   GlobeAltIcon,
   InformationCircleIcon,
+  SearchIcon,
   MenuIcon,
   NewspaperIcon,
   OfficeBuildingIcon,
@@ -418,11 +453,13 @@ export default {
     PopoverPanel,
     ChevronDownIcon,
     MenuIcon,
+    SearchIcon,
     XIcon,
   },
   setup() {
     // const isActive = ref(false)
     const isScroll = ref(false)
+    const isOpen = ref(false)
 
     onMounted(() => {
       window.document.onscroll = () => {
@@ -441,6 +478,7 @@ export default {
       resources,
       blogPosts,
       isScroll,
+      isOpen,
     }
   },
 }
@@ -456,6 +494,34 @@ export default {
 .transparent-navbar {
   transition: all 300ms ease-in-out;
   padding: 0rem 0rem;
+}
+
+a:after,
+a:before {
+  transition: all 0.5s;
+}
+
+.stroke a,
+.fill a {
+  position: relative;
+}
+.stroke a:after,
+.fill a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 10px;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  top: 86px;
+  color: transparent;
+  background: #2659e3;
+  height: 2px;
+}
+.stroke a:hover:after {
+  width: 100%;
 }
 
 @media screen and (min-width: 560px) {

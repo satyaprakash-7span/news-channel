@@ -1,6 +1,6 @@
 <template>
   <div class="w-full overflow-auto">
-    <div class="relative py-16 mt-12 bg-white">
+    <div class="relative py-16 mt-12 bg-white sm:mt-32">
       <div
         class="absolute top-0 hidden h-1/2 bg-gray-50 lg:block"
         aria-hidden="true"
@@ -166,7 +166,7 @@
                   Title
                 </label>
                 <div
-                  class="max-w-md mx-auto mt-2 mb-2 border border-gray-200"
+                  class="max-w-lg mx-auto mt-2 mb-2 border border-gray-200  sm:max-w-md"
                 ></div>
                 <h3
                   class="mt-2 text-lg font-medium text-gray-900  group-hover:text-indigo-500 sm:text-xl"
@@ -180,7 +180,7 @@
                   Description
                 </label>
                 <div
-                  class="max-w-md mx-auto mt-2 mb-2 border border-gray-200"
+                  class="max-w-lg mx-auto mt-2 mb-2 border border-gray-200  sm:max-w-md"
                 ></div>
                 <p
                   v-if="news.description"
@@ -198,7 +198,7 @@
           </router-link>
         </div>
         <div
-          v-if="newsStore.newsList.length < 1"
+          v-if="!newsStore.newsList"
           class="flex flex-col items-center justify-center py-6 mt-4 text-base text-gray-400 "
         >
           <ExclamationIcon class="w-12 h-12 text-gray-500" />

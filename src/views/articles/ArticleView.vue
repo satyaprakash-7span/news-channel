@@ -2,7 +2,7 @@
   <div class="bg-white">
     <div class="">
       <div
-        class="w-full h-auto mx-auto mt-16 mb-20 bg-gray-100 rounded-md shadow-md  sm:mt-24 max-w-7xl"
+        class="w-full h-auto mx-auto mt-32 mb-20 bg-gray-100 rounded-md shadow-md  max-w-7xl"
       >
         <div class="lg:px-4">
           <img

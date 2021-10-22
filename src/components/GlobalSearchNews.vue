@@ -1,10 +1,10 @@
 <template>
-  <div ref="searchBar" class="relative hidden rounded lg:block">
+  <div ref="searchBar" class="relative block rounded lg:block">
     <div>
       <div
-        class="flex items-center justify-center flex-1 px-2  lg:ml-6 lg:justify-end"
+        class="flex items-center justify-center flex-1 px-2  lg:mr-6 lg:justify-end"
       >
-        <div class="w-full max-w-lg lg:max-w-xs">
+        <div class="w-full max-w-lg lg:max-w-lg">
           <div class="relative">
             <div
               class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none "
@@ -14,7 +14,7 @@
             <input
               id="search"
               name="search"
-              class="block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 rounded-md  focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              class="block w-full py-3 pl-10 pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 rounded-md  sm:py-2 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sms"
               v-model="name"
               placeholder="Search Articles..."
               @input="onSearch"

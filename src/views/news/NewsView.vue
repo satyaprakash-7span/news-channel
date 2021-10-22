@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white">
-    <div class="px-4 mt-20 sm:px-2 sm:mt-0">
+    <div class="px-4 mt-32 sm:px-2">
       <div
         class="w-full h-auto mx-auto mt-16 mb-20 bg-gray-100 rounded-md shadow-md  sm:mt-24 max-w-7xl"
       >
