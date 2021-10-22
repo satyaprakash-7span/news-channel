@@ -140,11 +140,11 @@
       </div>
     </div>
 
-    <!-- Updates latest News -->
+    <!-- Updated latest News -->
     <div
       class="px-4 py-6 mx-auto mt-12 mb-10 bg-gray-200 rounded-md shadow-md  sm:mt-20 max-w-7xl sm:px-6"
     >
-      <h1 class="text-lg font-bold text-center sm:text-5xl">
+      <h1 class="text-xl font-bold text-center sm:text-3xl lg:text-5xl">
         Latest Arrived News
       </h1>
 
@@ -155,9 +155,9 @@
           class="grid w-full grid-cols-1 gap-8 py-6  sm:grid-cols-2 lg:grid-cols-3"
         >
           <router-link
-            :to="`articles/${news.id}/view`"
-            class="relative transition-all duration-700 transform bg-white rounded-md shadow-sm cursor-pointer  hover:bg-gray-100 hover:rounded-md group rounded-t-md hover:shadow-2xl motion-reduce:transform-none hover:border hover:border-gray-400"
             v-for="(news, index) in newsStore.newsList"
+            :to="`/news-view/${news.source.id}`"
+            class="relative transition-all duration-700 transform bg-white rounded-md shadow-sm cursor-pointer  hover:bg-gray-100 hover:rounded-md group rounded-t-md hover:shadow-2xl motion-reduce:transform-none hover:border hover:border-gray-400"
             :key="index"
           >
             <div class="px-4 py-3">
@@ -197,6 +197,17 @@
             </div>
           </router-link>
         </div>
+        <div
+          v-if="newsStore.newsList.length < 1"
+          class="flex flex-col items-center justify-center py-6 mt-4 text-base text-gray-400 "
+        >
+          <ExclamationIcon class="w-12 h-12 text-gray-500" />
+          <label
+            class="block px-2 mb-2 text-sm text-gray-500 uppercase sm:text-xl"
+          >
+            No news found!
+          </label>
+        </div>
       </div>
     </div>
   </div>
@@ -204,7 +215,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { PlusIcon } from '@heroicons/vue/solid'
+import { PlusIcon, ExclamationIcon } from '@heroicons/vue/solid'
 import { useNewsStore } from '@/stores/news'
 
 const newsStore = useNewsStore()
@@ -217,7 +228,7 @@ onMounted(() => {
 function fetchInitialData() {
   newsStore.fetchNews({
     country: 'us',
-    apiKey: '702fed1efe02446a96018e9d85f39655',
+    apiKey: 'ad6b3b0aa2344462a60eac0448d4816e',
   })
 }
 </script>

@@ -32,7 +32,7 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            ` https://newsapi.org/v2/top-headlines?country=us&apiKey=702fed1efe02446a96018e9d85f39655
+            ` https://newsapi.org/v2/top-headlines?country=us&apiKey=ad6b3b0aa2344462a60eac0448d4816e
 `
           )
           .then((response) => {
@@ -49,12 +49,12 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=702fed1efe02446a96018e9d85f39655
-
+            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=ad6b3b0aa2344462a60eac0448d4816e
 `
           )
           .then((response) => {
-            this.articlesList = response.data.articles
+            console.log(response)
+            this.newsList = response.data.articles
             resolve(response)
           })
           .catch((err) => {
@@ -98,12 +98,11 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=702fed1efe02446a96018e9d85f39655
+            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=ad6b3b0aa2344462a60eac0448d4816e
 `,
             { params }
           )
           .then((response) => {
-            console.log(response.data)
             this.articlesList = response.data.articles
             this.newsList = response.data.articles
             resolve(response)

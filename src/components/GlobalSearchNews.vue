@@ -59,7 +59,7 @@
             class="p-2 rounded-md cursor-pointer hover:bg-gray-100"
           >
             <router-link
-              :to="{ path: `news/${news.id}/view` }"
+              :to="{ path: `/news-view/${news.source.id}` }"
               class="flex items-center"
             >
               <div class="flex flex-col">
@@ -74,16 +74,15 @@
           </div>
 
           <div class="mx-auto mt-4 mb-4 border border-gray-200 max-md"></div>
-
-          <div
-            v-if="newsStore.newsList.length < 1"
-            class="flex flex-col items-center justify-center mt-4 text-base text-gray-400 "
-          >
-            <ExclamationIcon class="w-6 h-6 text-gray-500" />
-            <label class="block px-2 mb-2 text-sm text-gray-400 uppercase">
-              No news found!
-            </label>
-          </div>
+        </div>
+        <div
+          v-if="newsStore.newsList.length < 1"
+          class="flex flex-col items-center justify-center mt-4 text-base text-gray-400 "
+        >
+          <ExclamationIcon class="w-6 h-6 text-gray-500" />
+          <label class="block px-2 mb-2 text-sm text-gray-400 uppercase">
+            No news found!
+          </label>
         </div>
       </div>
     </transition>
@@ -115,14 +114,15 @@ export default {
       name.value = ''
     })
 
-    // onSearch = debounce(onSearch, 500)
+    // onMounted(() => {
+    //   onSearch = debounce(onSearch, 500)
+    // })
 
     function onSearch() {
       let data = {
         search: name.value,
       }
 
-      console.log('onSearch => ', data)
       if (name.value) {
         isSearching.value = true
         newsStore.searchArticles(data).then(() => {

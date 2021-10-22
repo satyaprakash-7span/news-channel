@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-24 overflow-hidden bg-gray-50">
+  <div class="mt-20 overflow-hidden sm:mt-32 bg-gray-50">
     <div class="relative px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="relative lg:grid lg:grid-cols-3 lg:gap-x-8">
         <div class="lg:col-span-1">
@@ -40,7 +40,7 @@
     <div
       class="px-4 py-6 mx-auto mt-12 mb-10 bg-gray-200 rounded-md shadow-md  sm:mt-20 max-w-7xl sm:px-6"
     >
-      <h1 class="text-lg font-bold text-center sm:text-5xl">
+      <h1 class="text-xl font-bold text-center sm:text-3xl lg:text-5xl">
         Latest Updated Articles
       </h1>
 
@@ -51,9 +51,9 @@
           class="grid w-full grid-cols-1 gap-8 py-6  sm:grid-cols-2 lg:grid-cols-3"
         >
           <router-link
-            :to="`articles/${articles.id}/view`"
+            :to="`/article-view/${article.source.id}`"
             class="relative transition-all duration-700 transform bg-white rounded-md shadow-sm cursor-pointer  hover:bg-gray-100 hover:rounded-md group rounded-t-md hover:shadow-2xl motion-reduce:transform-none hover:border hover:border-gray-400"
-            v-for="(articles, index) in newsStore.articlesList"
+            v-for="(article, index) in newsStore.newsList"
             :key="index"
           >
             <div class="px-4 py-3">
@@ -67,7 +67,7 @@
                 <h3
                   class="mt-2 text-lg font-medium text-gray-900  group-hover:text-indigo-500 sm:text-xl"
                 >
-                  {{ articles.title }}
+                  {{ article.title }}
                 </h3>
               </div>
 
@@ -79,10 +79,10 @@
                   class="max-w-md mx-auto mt-2 mb-2 border border-gray-200"
                 ></div>
                 <p
-                  v-if="articles.description"
+                  v-if="article.description"
                   class="mt-2 text-sm font-normal text-gray-500"
                 >
-                  {{ articles.description }}
+                  {{ article.description }}
                 </p>
                 <p class="mt-2 text-sm font-normal text-gray-500" v-else>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
@@ -92,6 +92,17 @@
               </div>
             </div>
           </router-link>
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-center py-6 mt-4 text-base text-gray-400 "
+        >
+          <ExclamationIcon class="w-12 h-12 text-gray-500" />
+          <label
+            class="block px-2 mb-2 text-sm text-gray-500 uppercase sm:text-xl"
+          >
+            No news found!
+          </label>
         </div>
       </div>
     </div>
@@ -105,6 +116,7 @@ import {
   GlobeAltIcon,
   LightningBoltIcon,
   MailIcon,
+  ExclamationIcon,
   ScaleIcon,
 } from '@heroicons/vue/outline'
 const features = [
@@ -142,10 +154,6 @@ onMounted(() => {
 
 // methods
 function fetchInitialData() {
-  newsStore.fetchArticles({
-    q: 'Apple',
-    from: '2021-10-20',
-    sortBy: 'popularity',
-  })
+  newsStore.fetchArticles({})
 }
 </script>

@@ -6,11 +6,14 @@
       >
         <div class="lg:px-4">
           <img
-            src="@/assets/hd-news.jpeg"
+            v-if="selectedNews.urlToImage"
+            :src="selectedNews.urlToImage"
             alt=""
             style="width: 100%"
             class="px-4 py-4 mt-2 border border-gray-300 rounded-md shadow-sm"
           />
+
+          <img src="@/assets/hd-news.jpeg" v-else />
         </div>
         <div class="px-6 py-5">
           <!-- News id -->
@@ -22,7 +25,7 @@
               ID :
             </label>
             <div for="" class="text-sm font-normal text-gray-600 sm:text-lg">
-              The washington
+              {{ selectedNews.source.id }}
             </div>
           </div>
 
@@ -36,7 +39,7 @@
               Name :
             </label>
             <div for="" class="text-sm font-normal text-gray-600 sm:text-lg">
-              Alex Costa
+              {{ selectedNews.source.name }}
             </div>
           </div>
 
@@ -50,7 +53,7 @@
               Title :
             </label>
             <div for="" class="text-sm font-normal text-gray-600 sm:text-lg">
-              New Title
+              {{ selectedNews.title }}
             </div>
           </div>
 
@@ -64,9 +67,7 @@
               Description :
             </label>
             <div for="" class="text-sm font-normal text-gray-600 sm:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-              expedita laboriosam modi nostrum vitae hic facilis assumenda nihil
-              amet ipsa.
+              {{ selectedNews.description }}
             </div>
           </div>
 
@@ -82,10 +83,7 @@
             <div
               class="text-sm font-normal text-gray-600 cursor-pointer  sm:text-lg"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-              placeat ex quo aut delectus nulla, libero tempora iusto earum,
-              rerum quos a fuga obcaecati impedit quam distinctio voluptate quia
-              iure.
+              {{ selectedNews.content }}
             </div>
           </div>
 
@@ -103,7 +101,7 @@
                 href=""
                 class="text-sm font-normal text-blue-500 cursor-pointer  hover:text-blue-600 sm:text-lg"
               >
-                https://images.unsplash
+                {{ selectedNews.url }}
               </a>
             </div>
           </div>
@@ -120,7 +118,7 @@
             <div
               class="text-sm font-normal text-gray-600 cursor-pointer  sm:text-lg"
             >
-              12 Dec 2021
+              {{ selectedNews.publishedAt }}
             </div>
           </div>
         </div>
@@ -132,11 +130,28 @@
 <script setup>
 // import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/solid'
 import { useNewsStore } from '@/stores/news'
-// import { computed } from 'vue'
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+
+let selectedNews = ref(null)
+
+const route = useRoute()
 
 const newsStore = useNewsStore()
+
 getNewsDetails()
+
+newsStore.fetchNews({
+  country: 'us',
+  apiKey: '702fed1efe02446a96018e9d85f39655',
+})
+
 function getNewsDetails() {
-  newsStore.newsList
+  const source = newsStore.newsList.find((_i) => {
+    if (_i.source.id === route.params.id) {
+      return _i
+    }
+  })
+  selectedNews.value = source
 }
 </script>

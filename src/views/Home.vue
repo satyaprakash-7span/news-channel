@@ -2,7 +2,7 @@
   <div class="bg-white">
     <main>
       <!-- Hero section -->
-      <div class="relative mt-12 sm:mt-40">
+      <div class="relative py-10 mt-12 sm:py-20">
         <div class="absolute inset-x-0 bottom-0 bg-gray-100 h-1/2" />
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
@@ -221,13 +221,13 @@
       <!-- Top headlines News cards-->
       <div class="mt-12 sm:mt-24">
         <h1
-          class="font-sans text-xl font-semibold text-center text-gray-600  sm:text-2xl lg:text-5xl sm:text-bold"
+          class="font-sans text-xl font-semibold text-center text-gray-600  sm:text-3xl lg:text-5xl sm:text-bold"
         >
           Latest worldwide Top Headlines News.
         </h1>
 
         <p
-          class="max-w-2xl mx-auto mt-4 text-sm font-normal text-center text-gray-500  sm:text-base"
+          class="max-w-2xl px-5 mx-auto mt-4 text-sm font-normal text-center text-gray-500  sm:px-0 sm:text-base"
         >
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque quis
           corporis fugit nemo reiciendis fuga accusamus voluptates nisi, tenetur
@@ -239,6 +239,7 @@
         class="w-full px-6 mt-12 bg-gray-100  sm:mx-auto sm:rounded-md sm:max-w-7xl"
       >
         <div
+          v-if="newsStore.newsList.length > 1"
           class="grid w-full grid-cols-1 gap-8 py-6  sm:grid-cols-2 lg:grid-cols-3"
         >
           <router-link
@@ -286,6 +287,17 @@
             </div>
           </router-link>
         </div>
+        <div
+          v-if="newsStore.newsList.length < 1"
+          class="flex flex-col items-center justify-center py-6 mt-4 text-base text-gray-400 "
+        >
+          <ExclamationIcon class="w-12 h-12 text-gray-500" />
+          <label
+            class="block px-2 mb-2 text-sm text-gray-500 uppercase sm:text-xl"
+          >
+            No news found!
+          </label>
+        </div>
       </div>
     </main>
 
@@ -304,6 +316,7 @@ import {
   PencilAltIcon,
   ReplyIcon,
   TrashIcon,
+  ExclamationIcon,
   UsersIcon,
 } from '@heroicons/vue/outline'
 import { useNewsStore } from '../stores/news'
@@ -399,7 +412,7 @@ const blogPosts = [
 ]
 
 export default {
-  components: { TheSiteFooter },
+  components: { TheSiteFooter, ExclamationIcon },
   setup() {
     const newsStore = useNewsStore()
 

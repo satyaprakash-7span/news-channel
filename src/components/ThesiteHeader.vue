@@ -1,9 +1,15 @@
 <template>
-  <Popover class="relative w-full bg-white">
+  <Popover class="relative w-full">
     <div class="absolute inset-0 z-30 pointer-events-none" aria-hidden="true" />
-    <div class="z-10">
+    <div
+      class=""
+      :class="[
+        { 'shadow-xl bg-transparent transparent-navbar z-1': isScroll },
+        'fixed top-0 left-0 z-40 w-full scroll-navbar bg-white ',
+      ]"
+    >
       <div
-        class="fixed top-0 z-20 flex items-center justify-between w-full px-4 py-5 bg-white shadow-lg  sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10"
+        class="flex items-center justify-between w-full px-4 py-5  sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10"
       >
         <!-- website logo -->
         <div>
@@ -248,8 +254,91 @@
           </PopoverGroup>
         </div>
 
+        <transition
+          enter-active-class="duration-200 ease-out"
+          enter-from-class="scale-95 opacity-0"
+          enter-to-class="scale-100 opacity-100"
+          leave-active-class="duration-100 ease-in"
+          leave-from-class="scale-100 opacity-100"
+          leave-to-class="scale-95 opacity-0"
+        >
+          <PopoverPanel
+            focus
+            class="absolute inset-x-0 top-0 p-2 transition origin-top-right transform  md:hidden"
+          >
+            <div
+              class="bg-white divide-y-2 rounded-lg shadow-lg  ring-1 ring-black ring-opacity-5 divide-gray-50"
+            >
+              <div class="px-5 pt-5 pb-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <a
+                      href="/"
+                      class="block text-xl font-bold text-blue-500 border-t-2 border-blue-600  hover:text-blue-600 sm:hidden"
+                    >
+                      WNC
+                    </a>
+                  </div>
+                  <div class="-mr-2">
+                    <PopoverButton
+                      class="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md  hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    >
+                      <span class="sr-only">Close menu</span>
+                      <XIcon class="w-6 h-6" aria-hidden="true" />
+                    </PopoverButton>
+                  </div>
+                </div>
+                <div class="mt-6">
+                  <nav class="grid gap-y-8">
+                    <a
+                      v-for="item in solutions"
+                      :key="item.name"
+                      :href="item.href"
+                      class="flex items-center p-3 -m-3 rounded-md  hover:bg-gray-50"
+                    >
+                      <component
+                        :is="item.icon"
+                        class="flex-shrink-0 w-6 h-6 text-indigo-600"
+                        aria-hidden="true"
+                      />
+                      <span class="ml-3 text-base font-medium text-gray-900">
+                        {{ item.name }}
+                      </span>
+                    </a>
+                  </nav>
+                </div>
+              </div>
+              <div class="px-5 py-6 space-y-6">
+                <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+                  <router-link
+                    to="/news/news-index"
+                    class="text-base font-medium text-gray-900  hover:text-gray-700"
+                  >
+                    News
+                  </router-link>
+
+                  <router-link
+                    to="/articles/articles-index"
+                    class="text-base font-medium text-gray-900  hover:text-gray-700"
+                  >
+                    Articles
+                  </router-link>
+                  <a
+                    v-for="item in resources"
+                    :key="item.name"
+                    :href="item.href"
+                    class="text-base font-medium text-gray-900  hover:text-gray-700"
+                  >
+                    {{ item.name }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </PopoverPanel>
+        </transition>
+
         <!-- Search News -->
-        <GlobalSearchNews class="" />
+        <GlobalSearchNews />
       </div>
     </div>
   </Popover>
@@ -280,7 +369,7 @@ import {
 } from '@heroicons/vue/outline'
 import { ChevronDownIcon } from '@heroicons/vue/solid'
 import GlobalSearchNews from './GlobalSearchNews.vue'
-
+import { ref, onMounted } from 'vue'
 const callsToAction = [
   { name: 'Watch News', href: '#', icon: PlayIcon },
   { name: 'View All News', href: '#', icon: CheckCircleIcon },
@@ -332,12 +421,51 @@ export default {
     XIcon,
   },
   setup() {
+    // const isActive = ref(false)
+    const isScroll = ref(false)
+
+    onMounted(() => {
+      window.document.onscroll = () => {
+        const navBar = document.getElementById('nav')
+        if (window.scrollY > navBar.offsetTop) {
+          isScroll.value = true
+        } else {
+          isScroll.value = false
+        }
+      }
+    })
+
     return {
       callsToAction,
       company,
       resources,
       blogPosts,
+      isScroll,
     }
   },
 }
 </script>
+
+<style lang="css">
+/* Sticky header   */
+.scroll-navbar {
+  transition: all 300ms ease-in;
+  padding: 0.5rem 0.2rem;
+}
+
+.transparent-navbar {
+  transition: all 300ms ease-in-out;
+  padding: 0rem 0rem;
+}
+
+@media screen and (min-width: 560px) {
+  .transparent-navbar {
+    transition: all 300ms ease-in-out;
+    padding: 0rem 0rem;
+  }
+
+  .scroll-navbar {
+    transition: all 300ms ease-in;
+  }
+}
+</style>
