@@ -3,7 +3,7 @@
     <h1
       class="mt-6 mb-6 text-xl text-center text-gray-900  sm:text-2xl lg:text-5xl"
     >
-      Top Lates Trending News
+      Top Latest Trending News
     </h1>
 
     <div

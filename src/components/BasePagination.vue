@@ -1,10 +1,10 @@
 <template>
   <div id="pagination-app">
     <div>
-      <div class="row" v-for="(item, index) in data" :key="index">
+      <div class="px-4 mt-4 row" v-for="(item, index) in data" :key="index">
         { {{ item.name }}}
       </div>
-      <div class="flex items-center">
+      <div class="flex items-center justify-end mr-4">
         <button
           @click="previous()"
           class="px-2 py-2 mt-4 text-gray-600 border border-gray-200  hover:border-blue-500 hover:bg-gray-200"
@@ -62,26 +62,21 @@ export default {
     ChevronLeftIcon,
     ChevronRightIcon,
   },
+  props: {
+    pagination: {
+      type: [String, Number, Array],
+      default: '',
+    },
+    maxSize: {
+      type: [String, Number, Array],
+      default: 5,
+    },
+    rowsData: {
+      type: [Function],
+      required: false,
+    },
+  },
 
-  computed: {
-    data: function () {
-      const startIndex = this.pageIndex * this.rowsPerPage
-      const endIndex = startIndex + this.rowsPerPage
-      return this.rows.slice(startIndex, endIndex)
-    },
-    page: function () {
-      return this.pageIndex + 1
-    },
-  },
-  methods: {
-    next() {
-      const maxPageIndex = Math.ceil(this.rows.length / this.rowsPerPage) - 1
-      this.pageIndex = Math.min(this.pageIndex + 1, maxPageIndex)
-    },
-    previous() {
-      this.pageIndex = Math.max(this.pageIndex - 1, 0)
-    },
-  },
   data() {
     return {
       rows: [
@@ -95,8 +90,30 @@ export default {
         { name: 'bar, the last item' },
       ],
       pageIndex: 0,
-      rowsPerPage: 3,
+      rowsPerPage: 5,
+      nextPage: 1,
     }
+  },
+
+  computed: {
+    data: function () {
+      const startIndex = this.pageIndex * this.rowsPerPage
+      const endIndex = startIndex + this.rowsPerPage
+      return this.rows.slice(startIndex, endIndex)
+    },
+    page: function () {
+      return this.pageIndex + 1
+    },
+  },
+
+  methods: {
+    next() {
+      const maxPageIndex = Math.ceil(this.rows.length / this.rowsPerPage) - 1
+      this.pageIndex = Math.min(this.pageIndex + 1, maxPageIndex)
+    },
+    previous() {
+      this.pageIndex = Math.max(this.pageIndex - 1, 0)
+    },
   },
 }
 </script>

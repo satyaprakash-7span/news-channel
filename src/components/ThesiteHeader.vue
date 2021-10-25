@@ -5,14 +5,15 @@
       class="flex items-center"
       :class="[
         {
-          'shadow-xl bg-transparent lg:px-16 transition-all duration-700 transform ease-in  transparent-navbar z-1':
+          'shadow-xl bg-transparent lg:px-16 transition-all duration-700 transform ease-in transparent-navbar z-1':
             isScroll,
         },
         'fixed top-0 left-0 z-40 w-full transition-all duration-700 ease-in-out transform scroll-navbar bg-white ',
       ]"
     >
       <div
-        class="flex items-center justify-between w-full px-4 py-5  sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10"
+        :class="[{ 'lg:py-7 py-3': isScroll }, 'py-3']"
+        class="flex items-center justify-between w-full px-4  sm:px-6 lg:px-8 md:justify-start md:space-x-10"
       >
         <!-- website logo -->
         <div v-if="!isOpen">
@@ -67,6 +68,7 @@
           </PopoverButton>
         </div>
 
+        <!-- About us feature -->
         <div
           class="hidden  md:flex-1 stroke md:flex md:items-center md:justify-center"
         >
