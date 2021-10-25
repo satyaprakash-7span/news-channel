@@ -6,7 +6,9 @@
     >
       <div class="px-4 py-4 carousel-cell">
         <img src="../assets/health-img.jpeg" alt="" class="w-full rounded-md" />
+
         <div class="mx-auto mt-4 mb-4 border border-gray-200 max-w-7xl"></div>
+
         <h1
           class="font-serif text-xl font-bold text-center text-black  sm:text-2xl lg:text-5xl"
         >
@@ -27,7 +29,9 @@
           alt=""
           class="w-full rounded-md"
         />
+
         <div class="mx-auto mt-4 mb-4 border border-gray-200 max-w-7xl"></div>
+
         <h1
           class="font-serif text-xl font-bold text-center text-black  sm:text-2xl lg:text-5xl"
         >
@@ -59,7 +63,7 @@
         </p>
       </div>
 
-      <div class="px-4 py-4 rounded-md shadow-sm carousel-cell">
+      <div class="px-4 py-4 carousel-cell">
         <img src="../assets/sports-img.jpeg" alt="" class="w-full rounded-md" />
         <div class="mx-auto mt-4 mb-4 border border-gray-200 max-w-7xl"></div>
         <h1
@@ -75,7 +79,8 @@
           optio sequi rerum impedit sit?
         </p>
       </div>
-      <div class="px-4 py-4 rounded-md shadow-sm carousel-cell">
+
+      <div class="px-4 py-4 carousel-cell">
         <img src="../assets/edu-img.jpeg" alt="" class="w-full rounded-md" />
         <div class="mx-auto mt-4 mb-4 border border-gray-200 max-w-7xl"></div>
         <h1

@@ -330,7 +330,10 @@
             </label>
           </div>
         </div>
-        <!-- <BasePagination v-model="newsStore.totalResults" /> -->
+        <BasePagination
+          v-model="newsStore.totalResults"
+          class="flex justify-end"
+        />
       </div>
     </main>
 
@@ -342,7 +345,6 @@
 import NewsSlider from './NewsSlider.vue'
 import CategoryNews from './CategoryNews.vue'
 import TheSiteFooter from '../components/TheSiteFooter.vue'
-// import NewsSvg from '../components/icons/NewsSvg.vue'
 import {
   ChatAltIcon,
   DocumentReportIcon,
@@ -355,7 +357,7 @@ import {
   UsersIcon,
 } from '@heroicons/vue/outline'
 import { useNewsStore } from '../stores/news'
-// import BasePagination from '../components/BasePagination.vue'
+import BasePagination from '../components/BasePagination.vue'
 const features = [
   {
     name: 'Unlimited Inboxes',
@@ -452,7 +454,7 @@ export default {
     ExclamationIcon,
     CategoryNews,
     NewsSlider,
-    // BasePagination,
+    BasePagination,
   },
   setup() {
     const newsStore = useNewsStore()
