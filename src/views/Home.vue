@@ -1,6 +1,9 @@
 <template>
   <div class="bg-white">
     <main>
+      <!-- News Advertise slider -->
+      <news-slider class="mt-12" />
+
       <!-- Hero section -->
       <div class="relative py-10 mt-12 sm:py-20">
         <div class="absolute inset-x-0 bottom-0 bg-gray-100 h-1/2" />
@@ -242,9 +245,14 @@
         </div>
       </div>
 
+      <!-- Category news -->
+      <CategoryNews class="mt-12 sm:mt-24" />
+
+      <div class="w-full mx-auto mt-20 border border-gray-200 max-w-7xl"></div>
+
       <!-- Top headlines News cards-->
       <div>
-        <div class="mt-12 sm:mt-24">
+        <div class="mt-12 sm:mt-20">
           <h1
             class="font-sans text-xl font-semibold text-center text-gray-600  sm:text-3xl lg:text-5xl sm:text-bold"
           >
@@ -286,9 +294,7 @@
                   alt=""
                 />
               </div>
-              <div
-                class="transition-all duration-700 bg-white  group-hover:bg-black group-hover:bg-opacity-30 group-hover:rounded-b-md"
-              >
+              <div class="">
                 <div class="px-4 py-4">
                   <h3
                     class="text-lg font-medium text-gray-700 cursor-pointer  group-hover:text-white group-hover:text-indigo-600"
@@ -313,7 +319,7 @@
             </router-link>
           </div>
           <div
-            v-if="!newsStore.newsList"
+            v-if="!newsStore.newsList.length"
             class="flex flex-col items-center justify-center py-6 mt-4 text-base text-gray-400 "
           >
             <ExclamationIcon class="w-12 h-12 text-gray-500" />
@@ -324,7 +330,7 @@
             </label>
           </div>
         </div>
-        <BasePagination v-model="newsStore.totalResults" />
+        <!-- <BasePagination v-model="newsStore.totalResults" /> -->
       </div>
     </main>
 
@@ -333,6 +339,8 @@
 </template>
 
 <script>
+import NewsSlider from './NewsSlider.vue'
+import CategoryNews from './CategoryNews.vue'
 import TheSiteFooter from '../components/TheSiteFooter.vue'
 // import NewsSvg from '../components/icons/NewsSvg.vue'
 import {
@@ -347,7 +355,7 @@ import {
   UsersIcon,
 } from '@heroicons/vue/outline'
 import { useNewsStore } from '../stores/news'
-import BasePagination from '../components/BasePagination.vue'
+// import BasePagination from '../components/BasePagination.vue'
 const features = [
   {
     name: 'Unlimited Inboxes',
@@ -439,7 +447,13 @@ const blogPosts = [
 ]
 
 export default {
-  components: { TheSiteFooter, ExclamationIcon, BasePagination },
+  components: {
+    TheSiteFooter,
+    ExclamationIcon,
+    CategoryNews,
+    NewsSlider,
+    // BasePagination,
+  },
   setup() {
     const newsStore = useNewsStore()
 
@@ -456,36 +470,3 @@ export default {
   },
 }
 </script>
-
-<style lang="css">
-/* external css: flickity.css */
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-}
-
-.carousel {
-  background: #eee;
-}
-
-.carousel img {
-  display: block;
-  height: 200px;
-}
-
-.animated {
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  animation: up-down 2s ease-in-out infinite alternate-reverse both;
-}
-
-@media screen and (min-width: 768px) {
-  .carousel img {
-    height: 400px;
-  }
-}
-</style>

@@ -32,7 +32,7 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            ` https://newsapi.org/v2/top-headlines?country=us&apiKey=ad6b3b0aa2344462a60eac0448d4816e
+            ` https://newsapi.org/v2/top-headlines?country=us&apiKey=702fed1efe02446a96018e9d85f39655
 `
           )
           .then((response) => {
@@ -49,7 +49,7 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=ad6b3b0aa2344462a60eac0448d4816e
+            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=702fed1efe02446a96018e9d85f39655
 `
           )
           .then((response) => {
@@ -98,7 +98,7 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=ad6b3b0aa2344462a60eac0448d4816e
+            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=702fed1efe02446a96018e9d85f39655
 `,
             { params }
           )

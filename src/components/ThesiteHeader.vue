@@ -5,7 +5,7 @@
       class="flex items-center"
       :class="[
         {
-          'shadow-xl bg-transparent lg:px-24 transition-all duration-700 transform ease-in  transparent-navbar z-1':
+          'shadow-xl bg-transparent lg:px-16 transition-all duration-700 transform ease-in  transparent-navbar z-1':
             isScroll,
         },
         'fixed top-0 left-0 z-40 w-full transition-all duration-700 ease-in-out transform scroll-navbar bg-white ',
@@ -18,7 +18,7 @@
         <div v-if="!isOpen">
           <a
             href="/"
-            class="hidden px-4 py-2 font-serif text-xl font-bold text-blue-500 transition-all duration-300 transform border border-blue-500 border-solid shadow-md  border-ring-2 sm:block hover:rounded-500 hover:text-yellow-500 hover:bg-gray-100 hover:scale-90 hover:shadow-lg lg:text-3xl"
+            class="hidden px-4 py-2 font-serif text-xl font-bold text-blue-500 transition-all duration-300 transform border border-blue-500 border-solid shadow-md  md:px-2 md:text-xl border-ring-2 sm:block hover:rounded-500 hover:text-yellow-500 hover:bg-gray-100 hover:scale-90 hover:shadow-lg xl:text-3xl"
           >
             News Channel
           </a>
@@ -271,13 +271,13 @@
                         </ul>
                       </div>
                       <div class="mt-6 text-sm font-medium">
-                        <a
-                          href="#"
+                        <router-link
+                          to="/articles/articles-index"
                           class="text-indigo-600 hover:text-indigo-500"
                         >
                           View all Articles
-                          <span aria-hidden="true">&rarr;</span></a
-                        >
+                          <span aria-hidden="true">&rarr;</span>
+                        </router-link>
                       </div>
                     </div>
                   </div>
@@ -325,6 +325,11 @@
               </div>
               <div class="mt-6">
                 <nav class="grid gap-y-8">
+                  <img
+                    src="@/assets/hd-news.jpeg"
+                    class="w-full px-2 py-2 transition-all duration-500 ease-in transform  hover:border hover:border-gray-400 h-50"
+                  />
+
                   <a
                     v-for="item in solutions"
                     :key="item.name"
@@ -344,7 +349,7 @@
               </div>
             </div>
             <div class="px-5 py-6 space-y-6">
-              <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+              <div class="grid grid-cols-2 mb-12 gap-y-4 gap-x-8">
                 <router-link
                   to="/news/news-index"
                   class="text-base font-medium text-gray-900  hover:text-gray-700"
@@ -367,6 +372,12 @@
                   {{ item.name }}
                 </a>
               </div>
+            </div>
+
+            <div
+              class="absolute px-6 py-4 mt-4 text-center text-gray-500 bg-gray-200  bottom-1 left-2 right-2 rounded-b-md"
+            >
+              ALL HEAD LINE NEWS
             </div>
           </div>
         </PopoverPanel>
