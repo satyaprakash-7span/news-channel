@@ -1,128 +1,119 @@
 <template>
-  <div id="pagination-app">
-    <div>
-      <div class="px-4 mt-4 row" v-for="(item, index) in data" :key="index">
-        { {{ item.name }}}
-      </div>
-      <div class="flex items-center justify-end mr-4">
-        <button
-          @click="previous()"
-          class="px-2 py-2 mt-4 text-gray-600 border border-gray-200  hover:border-blue-500 hover:bg-gray-200"
-        >
-          <ChevronLeftIcon class="w-5 h-5 text-gray-500" />
-        </button>
-
-        <a
-          class="
-            px-3
-            py-1.5
-            mt-4
-            cursor-pointer
-            text-gray-600
-            hover:border-blue-500 hover:bg-gray-200
-            border border-gray-200
-          "
-          v-for="(item, index) in data"
-          :key="index"
-        >
-          {{ page }}
-        </a>
-        <span
-          class="
-            px-4
-            leading-normal
-            space-x-2
-            py-1.5
-            gap-4
-            mt-4
-            text-gray-600
-            border border-gray-200
-          "
-          >.....</span
-        >
-
-        <button
-          @click="next()"
-          class="px-2 py-2 mt-4 text-gray-600 border border-gray-200  hover:border-blue-500 hover:bg-gray-200"
-        >
-          <ChevronRightIcon class="w-5 h-5 text-gray-500" />
-        </button>
-      </div>
-    </div>
+  <div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <button
+            type="button"
+            class="page-link"
+            v-if="page != 1"
+            @click="page--"
+          >
+            <ChevronLeftIcon class="h-6" />
+          </button>
+        </li>
+        <li class="page-item">
+          <button
+            type="button"
+            class="page-link"
+            v-for="(pageNumber, index) in pages.slice(page - 1, page + 5)"
+            :key="index"
+            @click="page = pageNumber"
+          >
+            {{ pageNumber }}
+          </button>
+        </li>
+        <li class="page-item">
+          <button
+            type="button"
+            @click="page++"
+            v-if="page < pages.length"
+            class="page-link"
+          >
+            <ChevronRightIcon class="h-6" />
+          </button>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 
 <script>
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/solid'
-
 export default {
-  el: '#pagination-app',
+  props: {
+    pageSize: {
+      type: [Array, Number, String],
+      default: '',
+    },
+  },
 
   components: {
     ChevronLeftIcon,
     ChevronRightIcon,
   },
-  props: {
-    pagination: {
-      type: [String, Number, Array],
-      default: '',
-    },
-    maxSize: {
-      type: [String, Number, Array],
-      default: 5,
-    },
-    rowsData: {
-      type: [Function],
-      required: false,
-    },
-  },
 
   data() {
     return {
-      rows: [
-        { name: 'this is the first' },
-        { name: 'second' },
-        { name: 'third' },
-        { name: 'this is the first of second page' },
-        { name: 'b from 2th' },
-        { name: 'c from 3th' },
-        { name: 'foo' },
-        { name: 'bar, the last item' },
-      ],
-      pageIndex: 0,
-      rowsPerPage: 5,
-      nextPage: 1,
+      news: [''],
+      page: 1,
+      perPage: 9,
+      pages: [],
     }
   },
-
-  computed: {
-    data: function () {
-      const startIndex = this.pageIndex * this.rowsPerPage
-      const endIndex = startIndex + this.rowsPerPage
-      return this.rows.slice(startIndex, endIndex)
+  methods: {
+    getNews() {
+      // let data = []
+      for (let i = 0; i < 50; i++) {
+        this.news.push({ first: 'John', last: 'Doe', suffix: '#' + i })
+      }
     },
-    page: function () {
-      return this.pageIndex + 1
+    setPages() {
+      let numberOfPages = Math.ceil(this.news.length / this.perPage)
+      for (let index = 1; index <= numberOfPages; index++) {
+        this.pages.push(index)
+      }
+    },
+    paginate(news) {
+      let page = this.page
+      let perPage = this.perPage
+      let from = page * perPage - perPage
+      let to = page * perPage
+      return news.slice(from, to)
     },
   },
-
-  methods: {
-    next() {
-      const maxPageIndex = Math.ceil(this.rows.length / this.rowsPerPage) - 1
-      this.pageIndex = Math.min(this.pageIndex + 1, maxPageIndex)
+  computed: {
+    displayednews() {
+      return this.paginate(this.news)
     },
-    previous() {
-      this.pageIndex = Math.max(this.pageIndex - 1, 0)
+  },
+  watch: {
+    news() {
+      this.setPages()
+    },
+  },
+  created() {
+    this.getNews()
+  },
+  filters: {
+    trimWords(value) {
+      return value.split(' ').splice(0, 20).join(' ') + '...'
     },
   },
 }
 </script>
 
 <style scoped>
-.row {
-  padding: 10px;
-  border: 1px dashed #ccc;
-  margin: 5px;
-  display: inline-block; /** because the code window is so small **/
+button.page-link {
+  display: inline-block;
+}
+button.page-link {
+  font-size: 20px;
+  color: #29b3ed;
+  font-weight: 500;
+}
+.offset {
+  width: 500px !important;
+  margin: 20px auto;
 }
 </style>

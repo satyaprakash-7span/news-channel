@@ -10,6 +10,7 @@ export const useNewsStore = defineStore({
     currentNews: null,
     newsList: [],
     articlesList: [],
+    totalNews: null,
   }),
 
   newsData: {
@@ -28,15 +29,16 @@ export const useNewsStore = defineStore({
 
   actions: {
     // fetch top-headlines news
-    fetchNews() {
+    fetchNews(params) {
       return new Promise((resolve, reject) => {
         axios
           .get(
-            ` https://newsapi.org/v2/top-headlines?country=us&apiKey=702fed1efe02446a96018e9d85f39655
-`
+            `https://newsapi.org/v2/top-headlines?country=us&apiKey=702fed1efe02446a96018e9d85f39655`,
+            { params }
           )
           .then((response) => {
             this.newsList = response.data.articles
+            this.totalNews = response.data.totalResults
             resolve(response)
           })
           .catch((err) => {
@@ -45,16 +47,18 @@ export const useNewsStore = defineStore({
       })
     },
     //  fetch all articles news
-    fetchArticles() {
+    fetchArticles(params) {
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=702fed1efe02446a96018e9d85f39655
-`
+            `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=e443752513ef487890b743379f7823a3`,
+            { params }
           )
           .then((response) => {
             console.log(response)
             this.newsList = response.data.articles
+            this.totalNews = response.data.totalResults
+
             resolve(response)
           })
           .catch((err) => {
@@ -77,28 +81,13 @@ export const useNewsStore = defineStore({
           })
       })
     },
-    // add articles action
-    addArticle(data) {
-      return new Promise((resolve, reject) => {
-        axios
-          .post('v2/everything', data)
-          .then((response) => {
-            this.articles.push(response.data)
-
-            resolve(response)
-          })
-          .catch((err) => {
-            reject(err)
-          })
-      })
-    },
 
     // search articles & news action
     searchArticles(params) {
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=702fed1efe02446a96018e9d85f39655
+            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=e443752513ef487890b743379f7823a3
 `,
             { params }
           )
