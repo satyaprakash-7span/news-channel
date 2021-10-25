@@ -34,23 +34,7 @@
     >
       <div
         v-if="isShow"
-        class="
-          scrollbar-thin
-          border border-gray-200
-          scrollbar-thumb-rounded-full
-          scrollbar-thumb-gray-300
-          scrollbar-track-gray-100
-          overflow-y-auto
-          bg-white
-          h-96
-          rounded-md
-          mt-2
-          shadow-lg
-          p-3
-          absolute
-          w-[300px]
-          right-0
-        "
+        class="absolute right-0 p-3 mt-2 overflow-y-auto bg-white border border-gray-200 rounded-md shadow-lg  scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-gray-300 scrollbar-track-gray-100 h-96 w-96"
       >
         <div v-if="newsStore.newsList.length > 0" class="mt-2">
           <div
