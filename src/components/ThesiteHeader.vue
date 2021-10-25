@@ -53,7 +53,7 @@
           leave-to-class="-translate-y-1 opacity-0"
         >
           <div class="w-full">
-            <GlobalSearchNews class="z-40" />
+            <mobile-search-input class="z-40 block sm:hidden" />
           </div>
         </transition>
 
@@ -416,6 +416,7 @@ import {
 import { ChevronDownIcon } from '@heroicons/vue/solid'
 import GlobalSearchNews from './GlobalSearchNews.vue'
 import { ref, onMounted } from 'vue'
+import MobileSearchInput from './MobileSearchInput.vue'
 const callsToAction = [
   { name: 'Watch News', href: '#', icon: PlayIcon },
   { name: 'View All News', href: '#', icon: CheckCircleIcon },
@@ -466,6 +467,7 @@ export default {
     MenuIcon,
     SearchIcon,
     XIcon,
+    MobileSearchInput,
   },
   setup() {
     // const isActive = ref(false)
