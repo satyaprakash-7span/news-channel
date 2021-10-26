@@ -21,15 +21,12 @@
               <span class="block text-white"
                 >Get up to date with Top Headlines</span
               >
-              <span class="block text-indigo-200">Our News report</span>
+              <span class="block text-indigo-200">Our News Channel</span>
             </h1>
             <p
               class="max-w-lg mx-auto mt-6 text-xl text-center text-indigo-200  sm:max-w-3xl"
             >
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni
-              error illum fugit accusantium optio delectus, quos atque assumenda
-              ab praesentium iure quibusdam nesciunt explicabo veniam ipsa a
-              blanditiis cumque totam!
+              Search for news articles that mention a specific topic or keyword!
             </p>
             <div
               class="max-w-sm mx-auto mt-10  sm:max-w-none sm:flex sm:justify-center"
@@ -39,7 +36,7 @@
               >
                 <router-link
                   to="/news/news-index"
-                  class="flex items-center justify-center px-6 py-3 text-base font-medium text-indigo-700 transition-all duration-700 ease-in-out transform bg-white border border-transparent rounded-md shadow-sm  sm:text-lg hover:shadow-lg hover:scale-110 hover:text-white hover:scale-90 hover:border hover:border-white hover:bg-transparent sm:px-8"
+                  class="flex items-center justify-center px-6 py-3 text-base font-medium text-blue-700 transition-all duration-700 ease-in-out transform bg-white border border-transparent rounded-md shadow-sm  hover:bg-yellow-500 hover:bg-opacity-20 sm:text-lg hover:shadow-lg hover:scale-110 hover:text-white hover:scale-90 hover:border hover:border-white hover:bg-transparent sm:px-8"
                 >
                   Get started
                 </router-link>

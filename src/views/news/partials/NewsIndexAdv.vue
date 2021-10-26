@@ -104,7 +104,7 @@
             class="relative max-w-md px-4 py-12 mx-auto space-y-6  sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-3 lg:col-span-6"
           >
             <h2 class="text-3xl font-extrabold text-white" id="join-heading">
-              Present your News to the public
+              Get Started with your Top News Present to the world!
             </h2>
             <p class="text-lg text-white">
               Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate
@@ -123,7 +123,7 @@
               sit similique magni laborum nam necessitatibus!
             </p>
             <router-link
-              class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-indigo-700 bg-indigo-100 border border-transparent rounded-md  hover:bg-indigo-200"
+              class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-indigo-700 transition-all bg-indigo-100 border border-transparent rounded-md  hover:bg-white hover:border-white hover:bg-opacity-20 hover:text-white duration-400"
               to="/news-create"
             >
               <PlusIcon class="w-6 h-6 mr-3" />

@@ -91,11 +91,12 @@
               </div>
               <div class="mt-4 sm:mt-0 sm:ml-3">
                 <button
-                  type="submit"
+                  @click="isShow = !isShow"
                   class="block w-full px-5 py-3 text-base font-medium text-white transition-all duration-700 ease-in-out transform bg-transparent border border-transparent border-white rounded-md shadow  hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10 hover:bg-opacity-50"
                 >
                   Notify me
                 </button>
+                <NewsModal v-show="isShow && isOpen" />
               </div>
             </form>
           </div>
@@ -104,3 +105,9 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import NewsModal from '../components/NewsModal.vue'
+const isShow = ref(false)
+</script>

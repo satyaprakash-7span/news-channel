@@ -9,8 +9,12 @@ export const useNewsStore = defineStore({
     totalArticles: 0,
     currentNews: null,
     newsList: [],
+    bbcNewsList: [],
     articlesList: [],
+    businessList: [],
+    totalBusinessNews: null,
     totalNews: null,
+    totalCategoryNews: null,
   }),
 
   newsData: {
@@ -25,15 +29,18 @@ export const useNewsStore = defineStore({
     body: '',
   },
 
-  getters: { getNewsList: (state) => state.articles },
+  getters: {
+    getNewsList: (state) => state.articles,
+    getBusinessNewsDetails: (state) => state.sources,
+  },
 
   actions: {
-    // fetch top-headlines news
+    // fetch Top Headlines News
     fetchNews(params) {
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/top-headlines?country=us&apiKey=702fed1efe02446a96018e9d85f39655`,
+            `https://newsapi.org/v2/top-headlines?country=us&apiKey=f153df22262e4fc5a251bd853afe1e93`,
             { params }
           )
           .then((response) => {
@@ -51,14 +58,52 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=e443752513ef487890b743379f7823a3`,
+            `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=f153df22262e4fc5a251bd853afe1e93`,
             { params }
           )
           .then((response) => {
             console.log(response)
             this.newsList = response.data.articles
-            this.totalNews = response.data.totalResults
+            this.totalCategoryNews = response.data.totalResults
 
+            resolve(response)
+          })
+          .catch((err) => {
+            reject(err)
+          })
+      })
+    },
+
+    // fetch Business News
+    fetchBusinessNews(params) {
+      return new Promise((resolve, reject) => {
+        axios
+          .get(
+            `https://newsapi.org/v2/top-headlines/sources?category=business&apiKey=f153df22262e4fc5a251bd853afe1e93
+`,
+            { params }
+          )
+          .then((response) => {
+            this.businessList = response.data.sources
+            resolve(response)
+          })
+          .catch((err) => {
+            reject(err)
+          })
+      })
+    },
+
+    // fetch Category News
+    fetchCategoryNews(params) {
+      return new Promise((resolve, reject) => {
+        axios
+          .get(
+            `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=f153df22262e4fc5a251bd853afe1e93`,
+            { params }
+          )
+          .then((response) => {
+            this.bbcNewsList = response.data.articles
+            this.totalCategoryNews = response.data.totalResults
             resolve(response)
           })
           .catch((err) => {
@@ -73,7 +118,7 @@ export const useNewsStore = defineStore({
         axios
           .post('https://jsonplaceholder.typicode.com/posts', data)
           .then((response) => {
-            this.news.push(response.data)
+            this.newsData.push(response.data.news)
             resolve(response)
           })
           .catch((err) => {
@@ -87,7 +132,7 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=e443752513ef487890b743379f7823a3
+            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=f153df22262e4fc5a251bd853afe1e93
 `,
             { params }
           )

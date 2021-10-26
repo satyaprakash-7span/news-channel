@@ -5,7 +5,8 @@ import NewsIndex from '../views/news/NewsIndex.vue'
 import NewsCreate from '../views/news/NewsCreate.vue'
 import ArticlesIndex from '../views/articles/ArticlesIndex.vue'
 import ArticleView from '../views/articles/ArticleView.vue'
-import NewsView from '../views/news/NewsView'
+import NewsView from '../views/news/NewsView.vue'
+import BusinessView from '../views/BusinessView.vue'
 
 const routes = [
   {
@@ -13,7 +14,7 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-  // news
+  // general news
   {
     path: '/news/news-index',
     name: 'NewsIndex',
@@ -47,7 +48,12 @@ const routes = [
     name: 'About',
     component: About,
   },
-  // News
+  // Business News
+  {
+    path: '/business-view',
+    name: 'BusinessView',
+    component: BusinessView,
+  },
 ]
 
 const router = createRouter({

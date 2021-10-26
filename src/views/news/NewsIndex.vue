@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full overflow-auto">
+  <div class="w-full overflow-auto bg-white">
     <NewsIndexAdv />
 
     <!-- Updated latest News -->
     <div
-      class="px-4 py-6 mx-auto mt-12 mb-10 bg-gray-200 rounded-md shadow-md  sm:mt-20 max-w-7xl sm:px-6"
+      class="px-4 py-6 mx-auto mt-12 mb-10 rounded-md shadow-md  bg-gray-50 sm:mt-20 max-w-7xl sm:px-6"
     >
       <h1 class="text-xl font-bold text-center sm:text-3xl lg:text-5xl">
         Latest Arrived News
@@ -44,7 +44,7 @@
                   class="max-w-lg mx-auto mt-2 mb-2 border border-gray-200  sm:max-w-md"
                 ></div>
                 <h3
-                  class="mt-2 text-lg font-medium text-gray-900  group-hover:text-indigo-500 sm:text-xl"
+                  class="mt-2 text-lg font-medium text-gray-900  group-hover:text-blue-500 sm:text-xl"
                 >
                   {{ news.title }}
                 </h3>
@@ -135,11 +135,11 @@ const totalPages = computed(() => {
 
 // methods
 function fetchInitialData() {
-  newsStore.fetchNews({ pageSize: 6, page })
+  newsStore.fetchNews({ pageSize: 11, page })
 }
 
 function updateHandler() {
   const current = page.value + 1
-  newsStore.fetchNews({ pageSize: 6, page: current })
+  newsStore.fetchNews({ pageSize: 11, page: current })
 }
 </script>

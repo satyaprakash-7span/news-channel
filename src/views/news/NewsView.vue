@@ -127,7 +127,6 @@
 </template>
 
 <script setup>
-// import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/solid'
 import { useNewsStore } from '@/stores/news'
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'

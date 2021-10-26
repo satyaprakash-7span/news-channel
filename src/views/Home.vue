@@ -13,6 +13,9 @@
       <!-- CTA Section -->
       <NewsCta />
 
+      <!-- Business News -->
+      <BusinessNews />
+
       <!-- Category news -->
       <CategoryNews class="mt-12 sm:mt-24" />
 
@@ -22,13 +25,13 @@
       <div>
         <div class="mt-12 sm:mt-20">
           <h1
-            class="font-sans text-xl font-semibold text-center text-gray-600  sm:text-3xl lg:text-5xl sm:text-bold"
+            class="font-serif text-xl font-semibold text-center text-gray-600  sm:text-3xl lg:text-5xl sm:text-bold"
           >
             Latest worldwide Top Headlines News.
           </h1>
 
           <p
-            class="max-w-2xl px-5 mx-auto mt-4 text-sm font-normal text-center text-gray-500  sm:px-0 sm:text-base"
+            class="max-w-2xl px-5 mx-auto mt-4 text-sm font-normal text-center text-gray-500  sm:px-0 sm:text-lg"
           >
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque quis
             corporis fugit nemo reiciendis fuga accusamus voluptates nisi,
@@ -47,7 +50,7 @@
               :to="`/news-view/${news.source.id}`"
               v-for="(news, index) in newsStore.newsList"
               :key="index"
-              class="relative transition-all duration-700 transform bg-white shadow-sm cursor-pointer  hover:rounded-b-md group rounded-t-md hover:shadow-xl motion-reduce:transform-none"
+              class="relative transition-all duration-700 transform bg-white shadow-sm cursor-pointer  hover:bg-gray-900 hover:bg-opacity-30 hover:rounded-b-md group rounded-t-md hover:shadow-xl motion-reduce:transform-none"
             >
               <div class="overflow-hidden group-hover:rounded-t-md">
                 <img
@@ -65,7 +68,7 @@
               <div class="">
                 <div class="px-4 py-4">
                   <h3
-                    class="text-lg font-medium text-gray-700 cursor-pointer  group-hover:text-white group-hover:text-indigo-600"
+                    class="text-lg font-medium text-gray-700 cursor-pointer  group-hover:text-white group-hover:text-blue-600"
                   >
                     {{ news.title }}
                   </h3>
@@ -104,6 +107,7 @@
             v-model="page"
             :pages="totalPages"
             :range-size="2"
+            class="border border-l-2 border-r-2 border-blue-500"
             active-color="#DCEDFF"
             @update:modelValue="updateHandler"
           />
@@ -127,6 +131,7 @@ import { ExclamationIcon } from '@heroicons/vue/outline'
 import { useNewsStore } from '../stores/news'
 import VPagination from '@hennge/vue3-pagination'
 import '@hennge/vue3-pagination/dist/vue3-pagination.css'
+import BusinessNews from './BusinessNews.vue'
 
 export default {
   components: {
@@ -134,6 +139,7 @@ export default {
     ExclamationIcon,
     CategoryNews,
     NewsSlider,
+    BusinessNews,
     VPagination,
     HeroAdv,
     HeroSection,
@@ -175,3 +181,37 @@ export default {
   },
 }
 </script>
+
+<style lang="css">
+.Page {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin: 0 2px;
+  border: blue 1px solid;
+  color: #413f3f;
+  font-size: 14px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  border-color: transparent;
+  cursor: pointer;
+  outline: 0;
+}
+
+.Page:hover {
+  border: 1px solid #2850c3;
+}
+
+.Page-active {
+  border: 1px solid #2850c3;
+  color: #333333;
+}
+.PaginationControl {
+  display: flex;
+  align-items: center;
+  padding: 11 px;
+}
+</style>
