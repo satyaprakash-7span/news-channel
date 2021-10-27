@@ -4,162 +4,141 @@
       class="w-full h-auto carousel"
       data-flickity='{ "freeScroll": true, "cellAlign": "left", "contain": true, "autoScroll": true}'
     >
-      <div class="px-4 py-4 carousel-cell">
-        <img src="../assets/health-img.jpeg" alt="" class="w-full rounded-md" />
+      <div class="relative carousel-cell">
+        <img
+          src="../assets/health-img.jpeg"
+          alt=""
+          class="relative z-10"
+          style="height: 600px; width: 100%"
+        />
 
-        <div class="mx-auto mt-4 mb-4 border border-gray-200 max-w-7xl"></div>
+        <div
+          class="absolute bottom-0 z-40 w-full bg-yellow-400 rounded-md shadow-lg  bg-opacity-20"
+        >
+          <div class="w-full px-6 py-4 mx-auto text-center max-w-7xl">
+            <h1
+              class="font-serif text-xl font-bold text-center text-blue-600  sm:text-2xl lg:text-5xl"
+            >
+              Health News
+            </h1>
+            <p
+              class="mt-4 mb-4 text-sm font-normal text-center text-white  sm:text-lg"
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Exercitationem porro maiores expedita tempora asperiores, tenetur
+              optio sequi rerum impedit sit?
+            </p>
+          </div>
+        </div>
+      </div>
 
-        <h1
-          class="
-            font-serif
-            text-xl
-            font-bold
-            text-center text-black
-            sm:text-2xl
-            lg:text-5xl
-          "
+      <div class="px-4 carousel-cell">
+        <img
+          src="../assets/politics-img.jpeg"
+          class="relative z-10"
+          alt=""
+          style="height: 600px; width: 100%"
+        />
+
+        <div
+          class="absolute bottom-0 z-40 w-full bg-yellow-400 rounded-md shadow-lg  bg-opacity-20"
         >
-          Health News
-        </h1>
-        <p
-          class="
-            mt-4
-            text-sm
-            font-normal
-            text-center text-gray-500
-            sm:text-base
-          "
+          <div class="w-full px-6 py-4 mx-auto text-center max-w-7xl">
+            <h1
+              class="font-serif text-xl font-bold text-center text-white  sm:text-2xl lg:text-5xl"
+            >
+              Politics News
+            </h1>
+            <p
+              class="mt-4 mb-4 text-sm font-normal text-center text-white  sm:text-lg"
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Exercitationem porro maiores expedita tempora asperiores, tenetur
+              optio sequi rerum impedit sit?
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-4 carousel-cell">
+        <img
+          src="../assets/hd-news.jpeg"
+          alt=""
+          class="relative z-10"
+          style="height: 600px; width: 100%"
+        />
+        <div
+          class="absolute bottom-0 z-40 w-full bg-yellow-400 rounded-md shadow-lg  bg-opacity-20"
         >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Exercitationem porro maiores expedita tempora asperiores, tenetur
-          optio sequi rerum impedit sit?
-        </p>
+          <div class="w-full px-6 py-4 mx-auto text-center max-w-7xl">
+            <h1
+              class="font-serif text-xl font-bold text-center text-white  sm:text-2xl lg:text-5xl"
+            >
+              Top Headlines News
+            </h1>
+            <p
+              class="mt-4 mb-4 text-sm font-normal text-center text-white  sm:text-lg"
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Exercitationem porro maiores expedita tempora asperiores, tenetur
+              optio sequi rerum impedit sit?
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-4 carousel-cell">
+        <img
+          src="../assets/sports-img.jpeg"
+          class="relative z-10"
+          alt=""
+          style="height: 600px; width: 100%"
+        />
+        <div
+          class="absolute bottom-0 z-40 w-full bg-yellow-400 rounded-md shadow-lg  bg-opacity-20"
+        >
+          <div class="w-full px-6 py-4 mx-auto text-center max-w-7xl">
+            <h1
+              class="font-serif text-xl font-bold text-center text-white  sm:text-2xl lg:text-5xl"
+            >
+              Sports News
+            </h1>
+            <p
+              class="mt-4 mb-4 text-sm font-normal text-center text-white  sm:text-lg"
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Exercitationem porro maiores expedita tempora asperiores, tenetur
+              optio sequi rerum impedit sit?
+            </p>
+          </div>
+        </div>
       </div>
 
       <div class="px-4 py-4 carousel-cell">
         <img
-          src="../assets/politics-img.jpeg"
+          src="../assets/edu-img.jpeg"
+          class="relative z-10"
+          style="height: 600px; width: 100%"
           alt=""
-          class="w-full rounded-md"
         />
-
-        <div class="mx-auto mt-4 mb-4 border border-gray-200 max-w-7xl"></div>
-
-        <h1
-          class="
-            font-serif
-            text-xl
-            font-bold
-            text-center text-black
-            sm:text-2xl
-            lg:text-5xl
-          "
+        <div
+          class="absolute bottom-0 z-40 w-full bg-yellow-400 rounded-md shadow-lg  bg-opacity-20"
         >
-          Politics News
-        </h1>
-        <p
-          class="
-            mt-4
-            text-sm
-            font-normal
-            text-center text-gray-500
-            sm:text-base
-          "
-        >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Exercitationem porro maiores expedita tempora asperiores, tenetur
-          optio sequi rerum impedit sit?
-        </p>
-      </div>
-
-      <div class="px-4 py-4 carousel-cell">
-        <img src="../assets/hd-news.jpeg" alt="" class="w-full rounded-md" />
-        <div class="mx-auto mt-4 mb-4 border border-gray-200 max-w-7xl"></div>
-        <h1
-          class="
-            font-serif
-            text-xl
-            font-bold
-            text-center text-black
-            sm:text-2xl
-            lg:text-5xl
-          "
-        >
-          Politics News
-        </h1>
-        <p
-          class="
-            mt-4
-            text-sm
-            font-normal
-            text-center text-gray-500
-            sm:text-base
-          "
-        >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Exercitationem porro maiores expedita tempora asperiores, tenetur
-          optio sequi rerum impedit sit?
-        </p>
-      </div>
-
-      <div class="px-4 py-4 carousel-cell">
-        <img src="../assets/sports-img.jpeg" alt="" class="w-full rounded-md" />
-        <div class="mx-auto mt-4 mb-4 border border-gray-200 max-w-7xl"></div>
-        <h1
-          class="
-            font-serif
-            text-xl
-            font-bold
-            text-center text-black
-            sm:text-2xl
-            lg:text-5xl
-          "
-        >
-          Sport News
-        </h1>
-        <p
-          class="
-            mt-4
-            text-sm
-            font-normal
-            text-center text-gray-500
-            sm:text-base
-          "
-        >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Exercitationem porro maiores expedita tempora asperiores, tenetur
-          optio sequi rerum impedit sit?
-        </p>
-      </div>
-
-      <div class="px-4 py-4 carousel-cell">
-        <img src="../assets/edu-img.jpeg" alt="" class="w-full rounded-md" />
-        <div class="mx-auto mt-4 mb-4 border border-gray-200 max-w-7xl"></div>
-        <h1
-          class="
-            font-serif
-            text-xl
-            font-bold
-            text-center text-black
-            sm:text-2xl
-            lg:text-5xl
-          "
-        >
-          Education News
-        </h1>
-        <p
-          class="
-            mt-4
-            text-sm
-            font-normal
-            text-center text-gray-500
-            sm:text-base
-          "
-        >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Exercitationem porro maiores expedita tempora asperiores, tenetur
-          optio sequi rerum impedit sit?
-        </p>
+          <div class="w-full px-6 py-4 mx-auto text-center max-w-7xl">
+            <h1
+              class="font-serif text-xl font-bold text-center text-white  sm:text-2xl lg:text-5xl"
+            >
+              Education News
+            </h1>
+            <p
+              class="mt-4 mb-4 text-sm font-normal text-center text-white  sm:text-lg"
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Exercitationem porro maiores expedita tempora asperiores, tenetur
+              optio sequi rerum impedit sit?
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -191,11 +170,9 @@
 
 .flickity-prev-next-button.previous {
   left: 20px;
-  margin-top: -3%;
 }
 
 .flickity-prev-next-button.next {
-  margin-top: -3%;
   right: 20px;
 }
 

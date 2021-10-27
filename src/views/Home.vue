@@ -2,7 +2,13 @@
   <div class="bg-white">
     <main>
       <!-- News Advertise slider -->
-      <news-slider class="mt-12" />
+      <NewsSlider class="mt-12" />
+
+      <!-- Horizontal Live News -->
+      <HorizontalLiveNews class="mt-32" />
+
+      <!-- Live News -->
+      <LiveNews class="" />
 
       <!-- Hero section -->
       <HeroSection />
@@ -25,13 +31,30 @@
       <div>
         <div class="mt-12 sm:mt-20">
           <h1
-            class="font-serif text-xl font-semibold text-center text-gray-600  sm:text-3xl lg:text-5xl sm:text-bold"
+            class="
+              font-serif
+              text-xl
+              font-semibold
+              text-center text-gray-600
+              sm:text-3xl
+              lg:text-5xl
+              sm:text-bold
+            "
           >
             Latest worldwide Top Headlines News.
           </h1>
 
           <p
-            class="max-w-2xl px-5 mx-auto mt-4 text-sm font-normal text-center text-gray-500  sm:px-0 sm:text-lg"
+            class="
+              max-w-2xl
+              px-5
+              mx-auto
+              mt-4
+              text-sm
+              font-normal
+              text-center text-gray-500
+              sm:px-0 sm:text-lg
+            "
           >
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque quis
             corporis fugit nemo reiciendis fuga accusamus voluptates nisi,
@@ -40,27 +63,69 @@
         </div>
 
         <div
-          class="w-full px-6 mt-12 bg-gray-100  sm:mx-auto sm:rounded-md sm:max-w-7xl"
+          class="
+            w-full
+            px-6
+            mt-12
+            bg-gray-100
+            sm:mx-auto sm:rounded-md sm:max-w-7xl
+          "
         >
           <div
             v-if="newsStore.newsList.length > 1"
-            class="grid w-full grid-cols-1 gap-8 py-6  sm:grid-cols-2 lg:grid-cols-3"
+            class="
+              grid
+              w-full
+              grid-cols-1
+              gap-8
+              py-6
+              sm:grid-cols-2
+              lg:grid-cols-3
+            "
           >
             <router-link
               :to="`/news-view/${news.source.id}`"
               v-for="(news, index) in newsStore.newsList"
               :key="index"
-              class="relative transition-all duration-700 transform bg-white shadow-sm cursor-pointer  hover:bg-gray-900 hover:bg-opacity-30 hover:rounded-b-md group rounded-t-md hover:shadow-xl motion-reduce:transform-none"
+              class="
+                relative
+                transition-all
+                duration-700
+                transform
+                bg-white
+                shadow-sm
+                cursor-pointer
+                hover:bg-gray-900 hover:bg-opacity-30 hover:rounded-b-md
+                group
+                rounded-t-md
+                hover:shadow-xl
+                motion-reduce:transform-none
+              "
             >
               <div class="overflow-hidden group-hover:rounded-t-md">
                 <img
                   src="@/assets/hd-news.jpeg"
                   v-if="!news.urlToImage"
-                  class="transition duration-1000 transform cursor-pointer  hover:scale-150"
+                  class="
+                    transition
+                    duration-1000
+                    transform
+                    cursor-pointer
+                    hover:scale-150
+                  "
                 />
                 <img
                   v-else
-                  class="object-cover w-full h-48 transition duration-1000 transform cursor-pointer  hover:scale-150"
+                  class="
+                    object-cover
+                    w-full
+                    h-48
+                    transition
+                    duration-1000
+                    transform
+                    cursor-pointer
+                    hover:scale-150
+                  "
                   :src="news.urlToImage"
                   alt=""
                 />
@@ -68,19 +133,39 @@
               <div class="">
                 <div class="px-4 py-4">
                   <h3
-                    class="text-lg font-medium text-gray-700 cursor-pointer  group-hover:text-white group-hover:text-blue-600"
+                    class="
+                      text-lg
+                      font-medium
+                      text-gray-700
+                      cursor-pointer
+                      group-hover:text-white group-hover:text-blue-600
+                    "
                   >
                     {{ news.title }}
                   </h3>
                   <p
                     v-if="news.description"
-                    class="mt-2 text-base font-normal text-gray-500 truncate  group-hover:text-white"
+                    class="
+                      mt-2
+                      text-base
+                      font-normal
+                      text-gray-500
+                      truncate
+                      group-hover:text-white
+                    "
                   >
                     {{ news.description }}
                   </p>
                   <p
                     v-else
-                    class="mt-2 text-base font-normal text-gray-500 truncate  group-hover:text-white"
+                    class="
+                      mt-2
+                      text-base
+                      font-normal
+                      text-gray-500
+                      truncate
+                      group-hover:text-white
+                    "
                   >
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Repellat, saepe.
@@ -91,7 +176,14 @@
           </div>
           <div
             v-if="!newsStore.newsList.length"
-            class="flex flex-col items-center justify-center py-6 mt-4 text-base text-gray-400 "
+            class="
+              flex flex-col
+              items-center
+              justify-center
+              py-6
+              mt-4
+              text-base text-gray-400
+            "
           >
             <ExclamationIcon class="w-12 h-12 text-gray-500" />
             <label
@@ -120,25 +212,29 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue'
-import NewsSlider from './NewsSlider.vue'
-import CategoryNews from './CategoryNews.vue'
-import HeroAdv from './HeroAdv.vue'
-import HeroSection from './HeroSection.vue'
-import NewsCta from './NewsCta.vue'
-import TheSiteFooter from '../components/TheSiteFooter.vue'
-import { ExclamationIcon } from '@heroicons/vue/outline'
-import { useNewsStore } from '../stores/news'
-import VPagination from '@hennge/vue3-pagination'
-import '@hennge/vue3-pagination/dist/vue3-pagination.css'
-import BusinessNews from './BusinessNews.vue'
+import { ref, computed, watch } from "vue";
+import NewsSlider from "./NewsSlider.vue";
+import CategoryNews from "./CategoryNews.vue";
+import HeroAdv from "./HeroAdv.vue";
+import HeroSection from "./HeroSection.vue";
+import NewsCta from "./NewsCta.vue";
+import TheSiteFooter from "../components/TheSiteFooter.vue";
+import { ExclamationIcon } from "@heroicons/vue/outline";
+import { useNewsStore } from "../stores/news";
+import VPagination from "@hennge/vue3-pagination";
+import "@hennge/vue3-pagination/dist/vue3-pagination.css";
+import BusinessNews from "./BusinessNews.vue";
+import LiveNews from "../components/LiveNews.vue";
+import HorizontalLiveNews from "../components/HorizontalLiveNews.vue";
 
 export default {
   components: {
+    HorizontalLiveNews,
     TheSiteFooter,
     ExclamationIcon,
     CategoryNews,
     NewsSlider,
+    LiveNews,
     BusinessNews,
     VPagination,
     HeroAdv,
@@ -147,29 +243,29 @@ export default {
   },
 
   setup() {
-    const newsStore = useNewsStore()
+    const newsStore = useNewsStore();
 
-    fetchInitialData()
+    fetchInitialData();
 
     watch(() => {
-      fetchInitialData()
-    })
+      fetchInitialData();
+    });
 
-    const page = ref(1)
+    const page = ref(1);
 
     const totalPages = computed(() => {
-      const total = newsStore.totalNews
-      const limit = 10
-      return Math.ceil(total / limit)
-    })
+      const total = newsStore.totalNews;
+      const limit = 10;
+      return Math.ceil(total / limit);
+    });
 
     function fetchInitialData() {
-      newsStore.fetchNews({ pageSize: 6, page })
+      newsStore.fetchNews({ pageSize: 6, page });
     }
 
     function updateHandler() {
-      const current = page.value + 1
-      newsStore.fetchNews({ pageSize: 6, page: current })
+      const current = page.value + 1;
+      newsStore.fetchNews({ pageSize: 6, page: current });
     }
 
     return {
@@ -177,9 +273,9 @@ export default {
       page,
       updateHandler,
       totalPages,
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="css">
