@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="" v-if="newsStore.newsList.length > 0">
     <div
       class="z-20 w-full h-20 px-4 py-4 overflow-hidden bg-white bg-no-repeat bg-cover rounded-md shadow-2xl  sm:rounded-none bg-opacity-20 back-img"
     >

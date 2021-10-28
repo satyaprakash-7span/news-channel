@@ -5,14 +5,14 @@
       class="flex items-center"
       :class="[
         {
-          'shadow-xl bg-transparent lg:px-16 transition-all duration-700 transform ease-in transparent-navbar z-1':
+          'shadow-xl lg:px-16 transition-all duration-700 transform ease-in transparent-navbar z-1':
             isScroll,
         },
-        'fixed top-0 left-0 z-40 w-full transition-all duration-700 ease-in-out transform scroll-navbar bg-white ',
+        'fixed top-0 left-0 bg-white z-40 w-full transition-all duration-700 ease-in-out transform scroll-navbar',
       ]"
     >
       <div
-        :class="[{ 'lg:py-7 py-3': isScroll }, 'py-3']"
+        :class="[{ 'py-3': isScroll }, 'py-8']"
         class="flex items-center justify-between w-full px-4  sm:px-6 lg:px-8 md:justify-start md:space-x-10"
       >
         <!-- website logo -->
@@ -69,9 +69,7 @@
         </div>
 
         <!-- About us feature -->
-        <div
-          class="hidden  md:flex-1 stroke md:flex md:items-center md:justify-center"
-        >
+        <div class="hidden md:flex-1 md:flex md:items-center md:justify-center">
           <PopoverGroup as="nav" class="flex space-x-10">
             <Popover v-slot="{ open }">
               <PopoverButton
@@ -130,13 +128,13 @@
 
             <router-link
               to="/articles/articles-index"
-              class="text-base font-medium text-gray-500  stroke lg:text-lg sm:text-lg hover:text-gray-900"
+              class="text-base font-medium text-gray-500  lg:text-lg sm:text-lg hover:text-gray-900"
             >
               Articles
             </router-link>
             <router-link
               to="/news/news-index"
-              class="text-base font-medium text-gray-500  stroke lg:text-xl sm:text-lg hover:text-gray-900"
+              class="text-base font-medium text-gray-500  lg:text-xl sm:text-lg hover:text-gray-900"
             >
               News
             </router-link>
@@ -145,7 +143,7 @@
               <PopoverButton
                 :class="[
                   open ? 'text-gray-900' : 'text-gray-500',
-                  'group bg-white stroke lg:text-xl sm:text-lg  rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500',
+                  'group bg-white lg:text-xl sm:text-lg  rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500',
                 ]"
               >
                 <span>More</span>
@@ -509,34 +507,6 @@ export default {
 .transparent-navbar {
   transition: all 300ms ease-in-out;
   padding: 0rem 0rem;
-}
-
-a:after,
-a:before {
-  transition: all 0.5s;
-}
-
-.stroke a,
-.fill a {
-  position: relative;
-}
-.stroke a:after,
-.fill a:after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-top: 10px;
-  margin: auto;
-  width: 0%;
-  content: '.';
-  top: 86px;
-  color: transparent;
-  background: #2659e3;
-  height: 2px;
-}
-.stroke a:hover:after {
-  width: 100%;
 }
 
 @media screen and (min-width: 560px) {

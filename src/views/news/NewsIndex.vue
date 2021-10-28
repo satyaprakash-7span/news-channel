@@ -82,8 +82,8 @@
           </router-link>
         </div>
         <div
-          v-if="!newsStore.newsList"
-          class="flex flex-col items-center justify-center py-6 mt-4 text-base text-gray-400 "
+          v-if="!newsStore.newsList.length"
+          class="flex flex-col items-center justify-center text-base text-gray-400 "
         >
           <ExclamationIcon class="w-12 h-12 text-gray-500" />
           <label
@@ -94,7 +94,7 @@
         </div>
       </div>
 
-      <div class="flex justify-end p-5">
+      <div class="flex justify-end p-5" v-if="newsStore.newsList.length > 0">
         <v-pagination
           v-model="page"
           :pages="totalPages"

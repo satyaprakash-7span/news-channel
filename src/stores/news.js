@@ -40,7 +40,7 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/top-headlines?country=us&apiKey=f153df22262e4fc5a251bd853afe1e93`,
+            `https://newsapi.org/v2/top-headlines?country=us&apiKey=00f0cfa8579d4543b7915d2fd59cc271`,
             { params }
           )
           .then((response) => {
@@ -58,7 +58,7 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=f153df22262e4fc5a251bd853afe1e93`,
+            `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=00f0cfa8579d4543b7915d2fd59cc271`,
             { params }
           )
           .then((response) => {
@@ -79,7 +79,7 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/top-headlines/sources?category=business&apiKey=f153df22262e4fc5a251bd853afe1e93
+            `https://newsapi.org/v2/top-headlines/sources?category=business&apiKey=00f0cfa8579d4543b7915d2fd59cc271
 `,
             { params }
           )
@@ -98,7 +98,7 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=f153df22262e4fc5a251bd853afe1e93`,
+            `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=00f0cfa8579d4543b7915d2fd59cc271`,
             { params }
           )
           .then((response) => {
@@ -132,7 +132,7 @@ export const useNewsStore = defineStore({
       return new Promise((resolve, reject) => {
         axios
           .get(
-            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=f153df22262e4fc5a251bd853afe1e93
+            `https://newsapi.org/v2/everything?q=Apple&from=2021-10-20&sortBy=popularity&apiKey=00f0cfa8579d4543b7915d2fd59cc271
 `,
             { params }
           )

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="" v-if="newsStore.newsList.length > 0">
     <div class="z-20 w-full px-4 py-6 bg-gray-900 bg-opacity-70 ticker-wrap">
       <p
         v-for="(news, index) in newsStore.newsList"

@@ -15,7 +15,7 @@
         <div
           class="absolute bottom-0 z-40 w-full bg-yellow-400 rounded-md shadow-lg  bg-opacity-20"
         >
-          <div class="w-full px-6 py-4 mx-auto text-center max-w-7xl">
+          <div class="w-full py-4 mx-auto text-center max-w-7xl">
             <h1
               class="font-serif text-xl font-bold text-center text-blue-600  sm:text-2xl lg:text-5xl"
             >
@@ -43,7 +43,7 @@
         <div
           class="absolute bottom-0 z-40 w-full bg-yellow-400 rounded-md shadow-lg  bg-opacity-20"
         >
-          <div class="w-full px-6 py-4 mx-auto text-center max-w-7xl">
+          <div class="w-full py-4 mx-auto text-center max-w-7xl">
             <h1
               class="font-serif text-xl font-bold text-center text-white  sm:text-2xl lg:text-5xl"
             >
@@ -70,7 +70,7 @@
         <div
           class="absolute bottom-0 z-40 w-full bg-yellow-400 rounded-md shadow-lg  bg-opacity-20"
         >
-          <div class="w-full px-6 py-4 mx-auto text-center max-w-7xl">
+          <div class="w-full py-4 mx-auto text-center max-w-7xl">
             <h1
               class="font-serif text-xl font-bold text-center text-white  sm:text-2xl lg:text-5xl"
             >
@@ -97,7 +97,7 @@
         <div
           class="absolute bottom-0 z-40 w-full bg-yellow-400 rounded-md shadow-lg  bg-opacity-20"
         >
-          <div class="w-full px-6 py-4 mx-auto text-center max-w-7xl">
+          <div class="w-full py-4 mx-auto text-center max-w-7xl">
             <h1
               class="font-serif text-xl font-bold text-center text-white  sm:text-2xl lg:text-5xl"
             >
@@ -124,7 +124,7 @@
         <div
           class="absolute bottom-0 z-40 w-full bg-yellow-400 rounded-md shadow-lg  bg-opacity-20"
         >
-          <div class="w-full px-6 py-4 mx-auto text-center max-w-7xl">
+          <div class="w-full py-4 mx-auto text-center max-w-7xl">
             <h1
               class="font-serif text-xl font-bold text-center text-white  sm:text-2xl lg:text-5xl"
             >
